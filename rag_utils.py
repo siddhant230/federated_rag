@@ -31,6 +31,7 @@ Settings.llm = llm_predictor
 def index_creator(file_path: str, target_path: str):
     doc = SimpleDirectoryReader(input_files=[file_path]).load_data()
     index = VectorStoreIndex.from_documents(doc)
+    target_path = Path(target_path) / "vector_index"
     index.storage_context.persist(persist_dir=target_path)
     print("Index created")
 
@@ -38,9 +39,9 @@ def index_creator(file_path: str, target_path: str):
 def load_query_engine(participants, datasite_path):
     index_list = []
     for user_folder in participants:
-        value_file: Path = Path(datasite_path) / \
-            user_folder / "public"
-        index = VectorStoreIndex.load_from_disk(persist_dir=value_file)
+        index_path: Path = Path(datasite_path) / \
+            user_folder / "public" / "vector_index"
+        index = VectorStoreIndex.load_from_disk(persist_dir=index_path)
         index_list.append(index)
 
     graph = ComposableGraph.from_indices(
