@@ -10,11 +10,9 @@ def make_index(participants: list[str], datasite_path: Path):
     for user_folder in participants:
         value_file: Path = Path(datasite_path) / \
             user_folder / "public" / "bio.txt"
-        if "rsiddhant73" in value_file:
-            print("########", value_file)
-            if value_file.exists():
-                index_creator(value_file, target_path=Path(
-                    datasite_path) / user_folder / "public")
+        if value_file.exists():
+            index_creator(value_file, target_path=Path(
+                datasite_path) / user_folder / "public")
 
 
 def perform_query(query, participants: list[str], datasite_path: Path):
