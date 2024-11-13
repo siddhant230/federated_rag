@@ -1,23 +1,20 @@
-from llama_index.core.composability import ComposableGraph
 from pathlib import Path
-from llama_index.core import SimpleDirectoryReader
+
 from llama_index.core import (
     VectorStoreIndex,
     SimpleKeywordTableIndex,
     SimpleDirectoryReader,
+    Settings
 )
-from llama_index.core import Settings
-
+from llama_index.core.composability import ComposableGraph
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.llms.huggingface import HuggingFaceLLM
 
-# loads BAAI/bge-small-en # locally
+# llocal embedding model
 embed_model = HuggingFaceEmbedding(model_name="BAAI/bge-small-en-v1.5")
 Settings.embed_model = embed_model
 
-# llm-predictor
-# llm_predictor = LLMPredictor(model_name=LocalLLM())
-# service_context = ServiceContext.from_defaults(llm_predictor=llm_predictor)
+# local llm-predictor
 llm_predictor = HuggingFaceLLM(
     model_name="distilbert/distilgpt2",
     tokenizer_name="distilbert/distilgpt2",
