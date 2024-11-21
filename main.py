@@ -48,7 +48,8 @@ if __name__ == "__main__":
 
     # question = input("Ask your query : ")
     question = "tell me about their education?"
-    response = perform_query(question)
+    response = perform_query(question, participants,
+                             client.datasite_path.parent)
     output_dir: Path = Path(client.datasite_path) / \
         "app_pipelines" / "basic_aggregation"
 

@@ -4,7 +4,6 @@ from pathlib import Path
 
 from llama_index.core import (
     VectorStoreIndex,
-    SimpleKeywordTableIndex,
     SimpleDirectoryReader,
     Settings,
     StorageContext, load_index_from_storage
