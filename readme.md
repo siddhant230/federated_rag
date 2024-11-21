@@ -17,3 +17,4 @@
 3. Uncommment custom test block of code.
 4. run main.py
 ```
+<img src="imgs/out.png">
