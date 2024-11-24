@@ -18,18 +18,18 @@ embed_model = HuggingFaceEmbedding(model_name="BAAI/bge-small-en-v1.5")
 Settings.embed_model = embed_model
 
 # local llm-predictor
-# llm_predictor = HuggingFaceLLM(
-#     model_name="distilbert/distilgpt2",
-#     tokenizer_name="distilbert/distilgpt2",
-#     context_window=3900,
-#     max_new_tokens=256,
-#     device_map="auto",
-# )
-llm_predictor = Gemini(
-    model="models/gemini-1.5-flash",
-    # uses GOOGLE_API_KEY
-    api_key=open("config_key.txt").read(),
+llm_predictor = HuggingFaceLLM(
+    model_name="distilbert/distilgpt2",
+    tokenizer_name="distilbert/distilgpt2",
+    context_window=3900,
+    max_new_tokens=256,
+    device_map="auto",
 )
+# llm_predictor = Gemini(
+#     model="models/gemini-1.5-flash",
+#     # uses GOOGLE_API_KEY
+#     api_key=open("config_key.txt").read(),
+# )
 Settings.llm = llm_predictor
 
 
