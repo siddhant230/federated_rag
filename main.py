@@ -6,6 +6,18 @@ from datetime import datetime
 
 from rag_utils import index_creator, load_query_engine
 
+import logging
+from pathlib import Path
+
+# Configure the logger
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    filename='/tmp/federated_rag.log',  # Log file
+    filemode='w'  # Overwrite each run
+)
+
+logger = logging.getLogger(__name__)
 
 def should_run(output_file_path: str) -> bool:
     INTERVAL = 30
@@ -65,11 +77,17 @@ def load_queries(input_query_folder: str):
         
 
 def perform_query(query, participants: list[str], datasite_path: Path):
+    logger.info("[federated_rag] Loading query engine...")
     midx_engine = load_query_engine(participants, datasite_path)
-    print("Engine ready for querying..")
-    response = midx_engine.query(query)
-    print("Query was executed succesfully.")
-    return response.response
+    logger.info("[federated_rag] Engine ready for querying.")
+    
+    try:
+        response = midx_engine.query(query)
+        logger.info("[federated_rag] Query executed successfully.")
+        return response.response
+    except Exception as e:
+        logger.error("[federated_rag] An error occurred during query execution: %s", e)
+        raise
 
 
 def network_participants(datasite_path: Path):
