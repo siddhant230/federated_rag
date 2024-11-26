@@ -59,17 +59,20 @@ def load_query_engine(participants, datasite_path, indexes=None):
     for user_folder in participants:
         index_path: Path = Path(datasite_path) / \
             user_folder / "public" / "vector_index"
+        print("Index path: ", index_path, user_folder)
         if indexes is not None:
             index = indexes[user_folder]
         else:
             index = load_from_disk(persist_dir=index_path)
+            print(f"Loaded index content: {index}")
         index_list.append(index)
         index_summary.append(f"{user_folder}")
-
+    print("index list", index_list)
     graph = ComposableGraph.from_indices(
         VectorStoreIndex,
         index_list,
         index_summaries=index_summary
     )
+    print(f"Graph structure: {graph}")
     query_engine = graph.as_query_engine()
     return query_engine

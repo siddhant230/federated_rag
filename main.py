@@ -77,6 +77,7 @@ def load_queries(input_query_folder: str):
         
 
 def perform_query(query, participants: list[str], datasite_path: Path):
+    print("loading query engine hossam")
     logger.info("[federated_rag] Loading query engine...")
     midx_engine = load_query_engine(participants, datasite_path)
     logger.info("[federated_rag] Engine ready for querying.")
@@ -84,6 +85,7 @@ def perform_query(query, participants: list[str], datasite_path: Path):
     try:
         response = midx_engine.query(query)
         logger.info("[federated_rag] Query executed successfully.")
+        print("query is done... ", response.source_nodes)
         return response.response
     except Exception as e:
         logger.error("[federated_rag] An error occurred during query execution: %s", e)
@@ -132,7 +134,7 @@ if __name__ == "__main__":
     for filename, query in queries.items():
         response = perform_query(query, active_participants,
                                 client.datasite_path.parent)
-        print(response)
+        print("response: ", response)
         output_response_path = output_query_folder / "{}_{}.txt".format(filename.split('.')[0], datetime.now().date())
 
         with open(output_response_path, "w") as file:
