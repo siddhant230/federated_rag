@@ -14,7 +14,8 @@ from llama_index.llms.huggingface import HuggingFaceLLM
 from llama_index.llms.gemini import Gemini
 
 # llocal embedding model
-embed_model = HuggingFaceEmbedding(model_name="BAAI/bge-small-en-v1.5")
+# embed_model = HuggingFaceEmbedding(model_name="BAAI/bge-small-en-v1.5")
+embed_model = HuggingFaceEmbedding(model_name="BAAI/bge-base-en-v1.5")
 Settings.embed_model = embed_model
 
 # local llm-predictor
