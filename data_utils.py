@@ -74,10 +74,3 @@ def get_github_user_info(profile_url):
         if readme_response and readme_response.status_code == 200:
             f.write(md_to_text(readme_response.text))
         f.close()
-
-if __name__ == "__main__":
-    # datasite_path = "test_group_scientists"
-    # participants = list(os.listdir(datasite_path))
-    # make_index(participants, datasite_path)
-    # resp = perform_query("summary about education of all of them?", participants, datasite_path)
-    get_github_user_info('https://github.com/animikhaich')
