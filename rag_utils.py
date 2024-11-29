@@ -5,40 +5,33 @@ from pathlib import Path
 from llama_index.core import (
     VectorStoreIndex,
     SimpleDirectoryReader,
-    Settings,
-    StorageContext, load_index_from_storage
+    Settings
 )
-from llama_index.core.composability import ComposableGraph
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.llms.huggingface import HuggingFaceLLM
 from llama_index.llms.gemini import Gemini
+from transformers import T5Tokenizer, T5ForConditionalGeneration
+
+# custom imports
+from custom_utils.custom_compose import GraphComposer
+
+# TODO : Parth : Implement this file
+from custom_utils.encryptors import encrypt_index
 
 # llocal embedding model
 embed_model = HuggingFaceEmbedding(model_name="BAAI/bge-small-en-v1.5")
 Settings.embed_model = embed_model
 
 # local llm-predictor
-llm_predictor = HuggingFaceLLM(
-    model_name="distilbert/distilgpt2",
-    tokenizer_name="distilbert/distilgpt2",
-    context_window=3900,
-    max_new_tokens=256,
-    device_map="auto",
-)
-# llm_predictor = Gemini(
+tokenizer = T5Tokenizer.from_pretrained("google/flan-t5-small")
+llm = T5ForConditionalGeneration.from_pretrained("google/flan-t5-small")
+
+# llm = Gemini(
 #     model="models/gemini-1.5-flash",
 #     # uses GOOGLE_API_KEY
 #     api_key=open("config_key.txt").read(),
 # )
-Settings.llm = llm_predictor
-
-
-def load_from_disk(persist_dir):
-    # rebuild storage context
-    storage_context = StorageContext.from_defaults(persist_dir=persist_dir)
-    # load index
-    index = load_index_from_storage(storage_context)
-    return index
+Settings.llm = llm
 
 
 def index_creator(file_path: str, target_path: str):
@@ -50,26 +43,22 @@ def index_creator(file_path: str, target_path: str):
 
     index.storage_context.persist(persist_dir=target_path)
     print(f"Index created for {file_path}")
+    encrypt_index(target_path)  # TODO
+    print("Embeddings encrypted and saved!")
     return index
 
 
 def load_query_engine(participants, datasite_path, indexes=None):
-    index_list = []
-    index_summary = []
+    index_path_list = []
     for user_folder in participants:
         index_path: Path = Path(datasite_path) / \
             user_folder / "public" / "vector_index"
-        if indexes is not None:
-            index = indexes[user_folder]
-        else:
-            index = load_from_disk(persist_dir=index_path)
-        index_list.append(index)
-        index_summary.append(f"{user_folder}")
+        index_path_list.append(index_path)
 
-    graph = ComposableGraph.from_indices(
-        VectorStoreIndex,
-        index_list,
-        index_summaries=index_summary
+    graph = GraphComposer(
+        indexes_folder_paths=index_path_list,
+        embedding_model=embed_model,
+        llm=llm,
+        tokenizer=tokenizer
     )
-    query_engine = graph.as_query_engine()
-    return query_engine
+    return graph
