@@ -9,3 +9,4 @@ beautifulsoup4
 python-dotenv
 markdown
 requests
+linkedin-api
