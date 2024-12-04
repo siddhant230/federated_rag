@@ -9,6 +9,7 @@ from src.lm_utils.llms.base_lm import T5LLM
 from src.rag_utils import index_creator, load_query_engine
 
 from src.data_utils.linkedin_extractor import LinkedinScraper
+from src.data_utils.resume_extractor import extract_resume_info
 # TODO : similarly wrap git_scraper and import @vrinda
 
 
