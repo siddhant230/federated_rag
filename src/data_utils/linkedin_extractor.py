@@ -4,11 +4,12 @@ import re
 import json
 import os
 
+
 @dataclass
-class linkedin_scraper:
-    user_email:str=field(default=None)
-    pwd:str=field(default=None)
-    
+class LinkedinScraper:
+    user_email: str = field(default=None)
+    pwd: str = field(default=None)
+
     def get_profile_usr(self, profile_url):
         pattern = r"linkedin\.com/(?:[a-z]{2,3}/)?(?:in|[\w-]+)/([^/]+)/?"
         match = re.search(pattern, profile_url)
@@ -16,9 +17,10 @@ class linkedin_scraper:
 
     def scrape_profile(self, profile_user):
         print(profile_user)
-        api = linkedin_api.Linkedin(username=self.user_email, password=self.pwd)
+        api = linkedin_api.Linkedin(
+            username=self.user_email, password=self.pwd)
         return api.get_profile(profile_user)
-    
+
     def clean_profile_data(self, data):
         clean_data = {
             "Name": f"{data.get('firstName', '')} {data.get('lastName', '')}".strip(),
@@ -47,8 +49,8 @@ class linkedin_scraper:
                 "Degree": edu.get("degreeName", ""),
                 "Field of Study": edu.get("fieldOfStudy", ""),
                 "Grade": edu.get("grade", "")
-            })   
-            
+            })
+
         for cert in data.get("certifications", []):
             clean_data["Certifications"].append({
                 "Name": cert.get("name", ""),
@@ -56,15 +58,16 @@ class linkedin_scraper:
                 "License Number": cert.get("licenseNumber", ""),
                 "URL": cert.get("url", "")
             })
-            
+
         return clean_data
-    
-    def save_profile_data(self, profile_url:str , output_dir:str = './linkedin-data'):
+
+    def save_profile_data(self, profile_url: str, output_dir: str = './linkedin-data'):
         os.makedirs(output_dir, exist_ok=True)
         profile_username = self.get_profile_usr(profile_url)
         profile_data = self.scrape_profile(profile_username)
         try:
             with open(f"{output_dir}/{profile_username}", 'w', encoding='utf-8') as file:
-                json.dump(self.clean_profile_data(profile_data), file, ensure_ascii=False)
+                json.dump(self.clean_profile_data(
+                    profile_data), file, ensure_ascii=False)
         except Exception as e:
             print("error while saving", e)

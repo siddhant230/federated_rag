@@ -8,6 +8,9 @@ from src.lm_utils.embedding_models.base_embeds import BgeSmallEmbedModel
 from src.lm_utils.llms.base_lm import T5LLM
 from src.rag_utils import index_creator, load_query_engine
 
+from src.data_utils.linkedin_extractor import LinkedinScraper
+# TODO : similarly wrap git_scraper and import @vrinda
+
 
 def should_run(output_file_path: str) -> bool:
     INTERVAL = 30
