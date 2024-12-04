@@ -4,34 +4,14 @@ from pathlib import Path
 
 from llama_index.core import (
     VectorStoreIndex,
-    SimpleDirectoryReader,
-    Settings
+    SimpleDirectoryReader
 )
-from llama_index.embeddings.huggingface import HuggingFaceEmbedding
-from llama_index.llms.huggingface import HuggingFaceLLM
-from llama_index.llms.gemini import Gemini
-from transformers import T5Tokenizer, T5ForConditionalGeneration
 
 # custom imports
-from custom_utils.custom_compose import GraphComposer
+from src.custom_utils.custom_compose import GraphComposer
 
 # TODO : Parth : Implement this file
-from custom_utils.encryptors import encrypt_index
-
-# llocal embedding model
-embed_model = HuggingFaceEmbedding(model_name="BAAI/bge-small-en-v1.5")
-Settings.embed_model = embed_model
-
-# local llm-predictor
-tokenizer = T5Tokenizer.from_pretrained("google/flan-t5-small")
-llm = T5ForConditionalGeneration.from_pretrained("google/flan-t5-small")
-
-# llm = Gemini(
-#     model="models/gemini-1.5-flash",
-#     # uses GOOGLE_API_KEY
-#     api_key=open("config_key.txt").read(),
-# )
-Settings.llm = llm
+from src.custom_utils.encryptors import encrypt_index
 
 
 def index_creator(file_path: str, target_path: str):
@@ -48,7 +28,10 @@ def index_creator(file_path: str, target_path: str):
     return index
 
 
-def load_query_engine(participants, datasite_path, indexes=None):
+def load_query_engine(participants, datasite_path,
+                      embed_model,
+                      llm, tokenizer,
+                      indexes=None):
     index_path_list = []
     for user_folder in participants:
         index_path: Path = Path(datasite_path) / \
