@@ -4,7 +4,9 @@ import json
 import os
 from datetime import datetime
 
-from rag_utils import index_creator, load_query_engine
+from src.lm_utils.embedding_models.base_embeds import BgeSmallEmbedModel
+from src.lm_utils.llms.base_lm import T5LLM
+from src.rag_utils import index_creator, load_query_engine
 
 
 def should_run(output_file_path: str) -> bool:
@@ -69,8 +71,11 @@ def load_queries(input_query_folder: str):
     return queries
 
 
-def perform_query(query, participants: list[str], datasite_path: Path):
-    midx_engine = load_query_engine(participants, datasite_path)
+def perform_query(query, participants: list[str], datasite_path: Path,
+                  embed_model, llm):
+    midx_engine = load_query_engine(participants, datasite_path,
+                                    embed_model=embed_model,
+                                    llm=llm)
     print("Engine ready for querying..")
     response = midx_engine.generate(query)
     print("Query was executed succesfully.")
@@ -93,7 +98,10 @@ def network_participants(datasite_path: Path):
 # syftbox relevant main
 if __name__ == "__main__":
 
+    # client and models loading
     client = Client.load()
+    embed_model = BgeSmallEmbedModel()
+    llm = T5LLM()
 
     # Setup folder paths
     output_folder = client.datasite_path / "api_data" / \
@@ -115,6 +123,10 @@ if __name__ == "__main__":
 
     # Check which participants are active (have a public/bio.txt file)
     participants = network_participants(client.datasite_path.parent)
+
+    # TODO : data scraping should be here @Vrinda
+    # scrape_save_data(participants, client.datasite_path.parent)
+
     active_participants = make_index(participants, client.datasite_path.parent)
 
     # Use their public data to answer the question I added
