@@ -136,7 +136,7 @@ if __name__ == "__main__":
     queries = load_queries(input_query_folder)
     for filename, query in queries.items():
         response = perform_query(query, active_participants,
-                                 client.datasite_path.parent)
+                                 client.datasite_path.parent, embed_model=embed_model, llm=llm)
         print(response)
         output_response_path = output_query_folder / \
             "{}_{}.txt".format(filename.split('.')[0], datetime.now().date())
