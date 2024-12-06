@@ -4,6 +4,7 @@ import json
 import os
 from datetime import datetime
 
+from src.custom_utils.encryptors import create_context
 from src.lm_utils.embedding_models.base_embeds import BgeSmallEmbedModel
 from src.lm_utils.llms.base_lm import T5LLM
 from src.rag_utils import index_creator, load_query_engine
@@ -41,7 +42,7 @@ def save_run(output_folder: str, output_file_path: str):
     print(f"Timestamp has been written to {output_file_path}")
 
 
-def make_index(participants: list[str], datasite_path: Path):
+def make_index(participants: list[str], datasite_path: Path, context):
     print("Computing indices")
     indexes = {}
     active_participants = []
@@ -50,7 +51,7 @@ def make_index(participants: list[str], datasite_path: Path):
             user_folder / "public" / "bio.txt"
         if value_file.exists():
             index = index_creator(value_file, target_path=Path(
-                datasite_path) / user_folder / "public")
+                datasite_path) / user_folder / "public", context=context)
             indexes[user_folder] = index
             active_participants.append(user_folder)
     print("Found {} indices and the active participants are: {}".format(
@@ -76,10 +77,10 @@ def load_queries(input_query_folder: str):
 
 
 def perform_query(query, participants: list[str], datasite_path: Path,
-                  embed_model, llm):
+                  embed_model, llm, context):
     midx_engine = load_query_engine(participants, datasite_path,
                                     embed_model=embed_model,
-                                    llm=llm)
+                                    llm=llm, context=context)
     print("Engine ready for querying..")
     response = midx_engine.generate(query)
     print("Query was executed succesfully.")
@@ -107,6 +108,8 @@ if __name__ == "__main__":
     embed_model = BgeSmallEmbedModel()
     llm = T5LLM()
 
+    global_context = create_context()
+
     # Setup folder paths
     output_folder = client.datasite_path / "api_data" / \
         "federated_rag" / "timestamp_recorder"
@@ -131,14 +134,16 @@ if __name__ == "__main__":
     # TODO : data scraping should be here @Vrinda
     # scrape_save_data(participants, client.datasite_path.parent)
 
-    active_participants = make_index(participants, client.datasite_path.parent)
+    active_participants = make_index(participants, client.datasite_path.parent,
+                                     context=global_context)
 
     # Use their public data to answer the question I added
     queries = load_queries(input_query_folder)
     for filename, query in queries.items():
         response = perform_query(query, active_participants,
                                  client.datasite_path.parent,
-                                 embed_model=embed_model, llm=llm)
+                                 embed_model=embed_model, llm=llm,
+                                 context=global_context)
         print(response)
         output_response_path = output_query_folder / \
             "{}_{}.txt".format(filename.split('.')[0], datetime.now().date())

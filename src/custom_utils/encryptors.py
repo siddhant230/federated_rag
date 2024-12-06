@@ -33,8 +33,11 @@ def read_embeddings(input_file: str):
 
 def encrypt_and_store_embeddings(input_folder: str,
                                  embedding_filename="default__vector_store.json",
-                                 output_filename="encrypted__vector_store.json"):
-    context = create_context()
+                                 output_filename="encrypted__vector_store.json",
+                                 context=None):
+    if context is None:
+        print("No context provided, making new")
+        return
     embeddings = read_embeddings(input_folder / embedding_filename)
     encrypted_embeddings = {}
     for key, value in embeddings.items():

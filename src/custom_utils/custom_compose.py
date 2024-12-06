@@ -9,13 +9,13 @@ from custom_index import CustomIndex
 # TODO : Parth : Implement this file
 from encryptors import (encrypt_embeddings,
                         decrypt_embeddings,
-                        create_context, encrypted_dot_product)
+                        encrypted_dot_product)
 
 
 class GraphComposer:
     def __init__(self, indexes_folder_paths: list,
                  embedding_model,
-                 llm):
+                 llm, context):
         self.indexes_folder_paths = indexes_folder_paths
         # embedding mdoel has to be a HuggingFaceEmbedding class for Settings to function
         self.embedding_model = embedding_model
@@ -24,7 +24,7 @@ class GraphComposer:
         self.compose_indexes()
         # Setting.llm not required as we are not using llamaindex for inference/generation.
         self.llm = llm
-        self.context = create_context()
+        self.context = context
 
     def load_from_disk(self, persist_dir):
         storage_context = StorageContext.from_defaults(persist_dir=persist_dir)
