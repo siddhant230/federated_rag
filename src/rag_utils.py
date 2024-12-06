@@ -11,7 +11,7 @@ from llama_index.core import (
 from src.custom_utils.custom_compose import GraphComposer
 
 # TODO : Parth : Implement this file
-from src.custom_utils.encryptors import encrypt_index
+from src.custom_utils.encryptors import encrypt_and_store_embeddings
 
 
 def index_creator(file_path: str, target_path: str):
@@ -23,7 +23,7 @@ def index_creator(file_path: str, target_path: str):
 
     index.storage_context.persist(persist_dir=target_path)
     print(f"Index created for {file_path}")
-    encrypt_index(target_path)  # TODO
+    encrypt_and_store_embeddings(target_path)
     print("Embeddings encrypted and saved!")
     return index
 

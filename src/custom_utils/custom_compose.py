@@ -7,7 +7,9 @@ from llama_index.core import (
 
 from custom_index import CustomIndex
 # TODO : Parth : Implement this file
-from encryptors import encrypt_embeddings, decrypt_embeddings
+from encryptors import (encrypt_embeddings,
+                        decrypt_embeddings,
+                        create_context, encrypted_dot_product)
 
 
 class GraphComposer:
@@ -22,6 +24,7 @@ class GraphComposer:
         self.compose_indexes()
         # Setting.llm not required as we are not using llamaindex for inference/generation.
         self.llm = llm
+        self.context = create_context()
 
     def load_from_disk(self, persist_dir):
         storage_context = StorageContext.from_defaults(persist_dir=persist_dir)
@@ -64,11 +67,12 @@ class GraphComposer:
         # get query embeds
         query_embedding = self.embedding_model.embed_data(query)
         # encrypt query embeds
-        encrypted_query_embedding = encrypt_embeddings(query_embedding)
+        encrypted_query_embedding = encrypt_embeddings(
+            query_embedding, context=self.context)
 
         # apply distance/sim metric
-        similarity_scores = np.dot(self.global_unencrypted_embedding_matrix,
-                                   encrypted_query_embedding).reshape(-1,)
+        similarity_scores = encrypted_dot_product(
+            encrypted_query_embedding, self.global_encrypted_embedding_matrix)
 
         # select top_k
         top_k_indices = np.argpartition(similarity_scores, -top_k)[-top_k:]
