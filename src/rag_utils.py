@@ -23,15 +23,15 @@ def index_creator(file_path: str, target_path: str, context):
 
     index.storage_context.persist(persist_dir=target_path)
     print(f"Index created for {file_path}")
-    encrypt_and_store_embeddings(target_path, context)
+    # encrypt_and_store_embeddings(input_folder=target_path, context=context)
     print("Embeddings encrypted and saved!")
     return index
 
 
 def load_query_engine(participants, datasite_path,
                       embed_model,
-                      llm,context,
-                      tokenizer=None,
+                      llm,
+                      context,
                       indexes=None):
     index_path_list = []
     for user_folder in participants:

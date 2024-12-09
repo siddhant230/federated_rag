@@ -85,7 +85,7 @@ def perform_query(query, participants: list[str], datasite_path: Path,
     print("Engine ready for querying..")
     response = midx_engine.generate(query)
     print("Query was executed succesfully.")
-    return response.response
+    return response
 
 
 def network_participants(datasite_path: Path):
@@ -136,38 +136,6 @@ def get_links_from_config(config_path:Path):
 
     return links
 
-# def extract_links_from_file(about_me_path:Path):
-#         links = {
-#         'linkedin': None,
-#         'github': None,
-#         'google_scholar': None,
-#         'twitter': None
-#         }
-#         try:
-#             with open(about_me_path, 'r', encoding='utf-8') as file:
-#                 content = file.read()
-#             linkedin_pattern = r'https?://(?:www\.)?linkedin\.com/in/[^\s\'"<>]+'
-#             github_pattern = r'https?://(?:www\.)?github\.com/[^\s\'"<>]+'
-#             scholar_pattern = r'https?://(?:www\.)?scholar\.google\.com/citations\?[^\s\'"<>]+'
-
-#             linkedin_match = re.search(linkedin_pattern, content, re.IGNORECASE)
-#             github_match = re.search(github_pattern, content, re.IGNORECASE)
-#             scholar_match = re.search(scholar_pattern, content, re.IGNORECASE)
-
-#             if linkedin_match:
-#                 links['linkedin'] = linkedin_match.group(0)
-#             if github_match:
-#                 links['github'] = github_match.group(0)
-#             if scholar_match:
-#                 links['google_scholar'] = scholar_match.group(0)
-        
-#         except FileNotFoundError:
-#             print(f"about_me.txt not found at {about_me_path}")
-#         except Exception as e:
-#             print(f"Error reading about_me.txt: {e}")
-#         print(links)
-#         return links
-    
 
 def scrape_save_data(participants:list[str], datasite_path:Path):
     for participant in participants:
@@ -284,11 +252,12 @@ if __name__ == "__main__":
     embed_model = BgeSmallEmbedModel()
     llm = T5LLM()
     global_context = create_context()
+    print(f"GLOBAL CONTEXT: {global_context}")
     datasite_path = "extra_test/scraping_test"
     participants = list(os.listdir(datasite_path))
     scrape_save_data(participants, datasite_path)
     make_index(participants, datasite_path, global_context)
-    resp = perform_query(query="summary about education of all of them?",
+    resp = perform_query(query="what is the person's job role?",
                          participants= participants,
                          datasite_path= datasite_path,
                          embed_model= embed_model,

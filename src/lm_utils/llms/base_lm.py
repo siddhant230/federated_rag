@@ -44,8 +44,7 @@ class T5LLM(BaseLLModel):
                  max_new_tokens=256):
         super().__init__(model_name, tokenizer_name)
         self.tokenizer = T5Tokenizer.from_pretrained(self.model_name)
-        self.llm = T5ForConditionalGeneration.from_pretrained(self.model_name
-        )
+        self.llm = T5ForConditionalGeneration.from_pretrained(self.model_name)
         self.max_new_tokens = max_new_tokens
 
     def postprocess(self, response, removable_content):
