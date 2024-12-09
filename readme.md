@@ -76,7 +76,7 @@ Every 10 @irina seconds, the Fed-RAG API performs the following tasks:
 
 #### 1. Install SyftBox
 
-SyftBox is required to run the Voting API. Install it by running the following command in your terminal:
+SyftBox is required to run the Fed-RAG API. Install it by running the following command in your terminal:
 
 ```bash
 curl -LsSf https://syftbox.openmined.org/install.sh | sh
@@ -90,7 +90,7 @@ After installing SyftBox:
 
 • **Option A: Using Git**
 
-Navigate to your `SyftBox/apis/` directory and clone the Voting API repository:
+Navigate to your `SyftBox/apis/` directory and clone the Fed-RAG API repository:
 
 ```bash
 cd ~/Desktop/SyftBox/apis
@@ -102,7 +102,7 @@ git clone https://github.com/siddhant230/federated_rag.git
 
 1. Click below to download the ZIP file of the repository: [Download Repository](https://github.com/siddhant230/federated_rag/archive/refs/heads/main.zip)
 2. Extract the ZIP file.
-3. Move the extracted voting folder into the `SyftBox/apis/` directory.
+3. Move the extracted fed-rag folder into the `SyftBox/apis/` directory.
 
 SyftBox will automatically detect and install the new API during its execution cycle.
 
@@ -112,7 +112,7 @@ SyftBox will automatically detect and install the new API during its execution c
 
 @ifra @irina
 
-1. **Open in Browser**: Paste the above URL into your browser’s address bar to access the voting interface.
+1. **Open in Browser**: Paste the above URL into your browser’s address bar to access the fed-rag interface.
 
 ### Creating the about_me.json
 
@@ -147,7 +147,7 @@ It could be done in two ways:
 
 ## Contributing
 
-We welcome contributions to enhance the Voting API:
+We welcome contributions to enhance the Fed-RAG API:
 
 1. **Fork the Repository**: Click "Fork" on GitHub to create your copy.
 2. **Create a Branch**: Develop your feature or fix in a new branch.
