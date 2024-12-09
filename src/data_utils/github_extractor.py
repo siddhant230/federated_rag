@@ -66,11 +66,19 @@ def get_github_user_info(profile_url):
                     break
             if not readme_found:
                 break
-    os.makedirs('./github_data', exist_ok=True)
 
-    with open(f'./github_data/{username}.txt', 'w') as f:
-        json.dump(user_info, f)
-        f.write('\n-------------------------\n')
-        if readme_response and readme_response.status_code == 200:
-            f.write(md_to_text(readme_response.text))
-        f.close()
+    if not (readme_response or readme_response.status_code==200):
+        return None
+
+    return md_to_text(readme_response.text)
+        
+    
+
+    # os.makedirs('./github_data', exist_ok=True)
+
+    # with open(f'./github_data/{username}.txt', 'w') as f:
+    #     json.dump(user_info, f)
+    #     f.write('\n-------------------------\n')
+    #     if readme_response and readme_response.status_code == 200:
+    #         f.write(md_to_text(readme_response.text))
+    #     f.close()

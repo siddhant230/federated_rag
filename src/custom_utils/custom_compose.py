@@ -5,9 +5,9 @@ from llama_index.core import (
     StorageContext, load_index_from_storage
 )
 
-from custom_index import CustomIndex
+from src.custom_utils.custom_index import CustomIndex
 # TODO : Parth : Implement this file
-from encryptors import (encrypt_embeddings,
+from src.custom_utils.encryptors import (encrypt_embeddings,
                         decrypt_embeddings,
                         encrypted_dot_product)
 
@@ -20,7 +20,7 @@ class GraphComposer:
         # embedding mdoel has to be a HuggingFaceEmbedding class for Settings to function
         self.embedding_model = embedding_model
         # setting again might not be required, as Settings.embed_model works globally
-        Settings.embed_model = embedding_model
+        Settings.embed_model = embedding_model.embedding_model
         self.compose_indexes()
         # Setting.llm not required as we are not using llamaindex for inference/generation.
         self.llm = llm
@@ -54,16 +54,16 @@ class GraphComposer:
                 index.encrypted_embedding_matrix)
             self.global_unencrypted_embedding_matrix.append(
                 index.unencrypted_embedding_matrix)
-            self.global_node_info.append(index.node_info)
-            self.global_text_info.append(index.text_info)
-            self.global_extra_info.append(index.extra_info)
+            self.global_node_info.extend(index.node_info)
+            self.global_text_info.extend(index.text_info)
+            self.global_extra_info.extend(index.extra_info)
 
         self.global_unencrypted_embedding_matrix = np.array(
             self.global_unencrypted_embedding_matrix)
         self.global_encrypted_embedding_matrix = np.array(
             self.global_encrypted_embedding_matrix)
 
-    def retriever(self, query, top_k=3):
+    def enc_retriever(self, query, top_k=3):
         # get query embeds
         query_embedding = self.embedding_model.embed_data(query)
         # encrypt query embeds
@@ -89,6 +89,32 @@ class GraphComposer:
             "collected_text_info": collected_text_info,
             "query_embedding": query_embedding,
             "encrypted_query_embedding": encrypted_query_embedding,
+            "similarity_scores": similarity_scores,
+            "top_k_indices": top_k_indices,
+            "top_k_node_ids": top_k_node_ids
+        }
+    
+    def retriever(self, query, top_k=3):
+        # get query embeds
+        top_k = min(top_k, self.global_unencrypted_embedding_matrix.shape[1])
+        query_embedding = self.embedding_model.embed_data(query)
+
+        similarity_scores = np.dot(self.global_unencrypted_embedding_matrix, query_embedding).reshape(-1,)
+        # select top_k
+        top_k_indices = np.argpartition(similarity_scores, -top_k)[-top_k:]
+
+        # collect text-info
+        collected_text_info = []
+        top_k_node_ids = []
+        for i in top_k_indices:
+            collected_text_info.append(self.global_text_info[i])
+            top_k_node_ids.append(self.global_node_info[i])
+
+        return {
+            "query": query,
+            "collected_text_info": collected_text_info,
+            "query_embedding": query_embedding,
+            "encrypted_query_embedding": query_embedding,
             "similarity_scores": similarity_scores,
             "top_k_indices": top_k_indices,
             "top_k_node_ids": top_k_node_ids

@@ -23,7 +23,7 @@ def index_creator(file_path: str, target_path: str, context):
 
     index.storage_context.persist(persist_dir=target_path)
     print(f"Index created for {file_path}")
-    encrypt_and_store_embeddings(target_path, context)
+    # encrypt_and_store_embeddings(input_folder=target_path, context=context)
     print("Embeddings encrypted and saved!")
     return index
 
