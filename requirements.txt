@@ -10,3 +10,6 @@ python-dotenv
 markdown
 requests
 linkedin-api
+PyPDF2
+google-generativeai
+tenseal

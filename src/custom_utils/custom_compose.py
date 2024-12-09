@@ -7,21 +7,24 @@ from llama_index.core import (
 
 from custom_index import CustomIndex
 # TODO : Parth : Implement this file
-from encryptors import encrypt_embeddings, decrypt_embeddings
+from encryptors import (encrypt_embeddings,
+                        decrypt_embeddings,
+                        encrypted_dot_product)
 
 
 class GraphComposer:
     def __init__(self, indexes_folder_paths: list,
                  embedding_model,
-                 llm, tokenizer):
+                 llm, context):
         self.indexes_folder_paths = indexes_folder_paths
         # embedding mdoel has to be a HuggingFaceEmbedding class for Settings to function
         self.embedding_model = embedding_model
+        # setting again might not be required, as Settings.embed_model works globally
         Settings.embed_model = embedding_model
         self.compose_indexes()
-
+        # Setting.llm not required as we are not using llamaindex for inference/generation.
         self.llm = llm
-        self.tokenizer = tokenizer
+        self.context = context
 
     def load_from_disk(self, persist_dir):
         storage_context = StorageContext.from_defaults(persist_dir=persist_dir)
@@ -62,13 +65,14 @@ class GraphComposer:
 
     def retriever(self, query, top_k=3):
         # get query embeds
-        query_embedding = self.embedding_model.get_query_embedding(query)
+        query_embedding = self.embedding_model.embed_data(query)
         # encrypt query embeds
-        encrypted_query_embedding = encrypt_embeddings(query_embedding)
+        encrypted_query_embedding = encrypt_embeddings(
+            query_embedding, context=self.context)
 
         # apply distance/sim metric
-        similarity_scores = np.dot(self.global_unencrypted_embedding_matrix,
-                                   encrypted_query_embedding).reshape(-1,)
+        similarity_scores = encrypted_dot_product(
+            encrypted_query_embedding, self.global_encrypted_embedding_matrix)
 
         # select top_k
         top_k_indices = np.argpartition(similarity_scores, -top_k)[-top_k:]
@@ -90,23 +94,10 @@ class GraphComposer:
             "top_k_node_ids": top_k_node_ids
         }
 
-    def make_prompt(self, context, query):
-        return f"""
-              Answer from given context, Be very specific and accurate.
-              {context}
-              Question: {query}
-              Answer:
-            """
-
     def generate(self, query, top_k=3):
         retrieved_out = self.retriever(query, top_k)
         collected_text_info = retrieved_out["collected_text_info"]
-        concatenated_info = "\n".join(collected_text_info)
+        context = "\n".join(collected_text_info)
 
-        # this could be anything
-        prompt = self.make_prompt(concatenated_info, query)
-        input_ids = self.tokenizer(prompt, return_tensors="pt").input_ids
-        outputs = self.llm.generate(input_ids, max_new_tokens=256)
-        out = self.tokenizer.decode(outputs[0]).replace(concatenated_info, "")
-
-        return out
+        response = self.llm.generate_response(context, query)
+        return response
