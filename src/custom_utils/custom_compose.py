@@ -5,9 +5,9 @@ from llama_index.core import (
     StorageContext, load_index_from_storage
 )
 
-from custom_index import CustomIndex
+from src.custom_utils.custom_index import CustomIndex
 # TODO : Parth : Implement this file
-from encryptors import (encrypt_embeddings,
+from src.custom_utils.encryptors import (encrypt_embeddings,
                         decrypt_embeddings,
                         encrypted_dot_product)
 

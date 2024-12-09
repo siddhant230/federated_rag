@@ -1,7 +1,7 @@
 import PyPDF2 as pypdf2
 
 
-def pdf_to_text(pdf_path, output_path):
+def pdf_to_text(pdf_path):
     with open(pdf_path, 'rb') as pdf_file:
         pdf_reader = pypdf2.PdfReader(pdf_file)
 

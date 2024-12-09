@@ -3,6 +3,7 @@ from syftbox.lib import Client, SyftPermission
 import json
 import os
 from datetime import datetime
+import re
 
 from src.custom_utils.encryptors import create_context
 from src.lm_utils.embedding_models.base_embeds import BgeSmallEmbedModel
@@ -10,8 +11,8 @@ from src.lm_utils.llms.base_lm import T5LLM
 from src.rag_utils import index_creator, load_query_engine
 
 from src.data_utils.linkedin_extractor import LinkedinScraper
-from src.data_utils.resume_extractor import extract_resume_info
-# TODO : similarly wrap git_scraper and import @vrinda
+from src.data_utils.resume_extractor import pdf_to_text
+from src.data_utils.github_extractor import get_github_user_info
 
 
 def should_run(output_file_path: str) -> bool:
@@ -99,6 +100,93 @@ def network_participants(datasite_path: Path):
 
     return users
 
+def extract_links_from_file(about_me_path:Path):
+        links = {
+        'linkedin': None,
+        'github': None,
+        'google_scholar': None,
+        'twitter': None
+        }
+        try:
+            with open(about_me_path, 'r', encoding='utf-8') as file:
+                content = file.read()
+            linkedin_pattern = r'https?://(?:www\.)?linkedin\.com/in/[^\s\'"<>]+'
+            github_pattern = r'https?://(?:www\.)?github\.com/[^\s\'"<>]+'
+            scholar_pattern = r'https?://(?:www\.)?scholar\.google\.com/citations\?[^\s\'"<>]+'
+
+            linkedin_match = re.search(linkedin_pattern, content, re.IGNORECASE)
+            github_match = re.search(github_pattern, content, re.IGNORECASE)
+            scholar_match = re.search(scholar_pattern, content, re.IGNORECASE)
+
+            if linkedin_match:
+                links['linkedin'] = linkedin_match.group(0)
+            if github_match:
+                links['github'] = github_match.group(0)
+            if scholar_match:
+                links['google_scholar'] = scholar_match.group(0)
+        
+        except FileNotFoundError:
+            print(f"about_me.txt not found at {about_me_path}")
+        except Exception as e:
+            print(f"Error reading about_me.txt: {e}")
+        print(links)
+        return links
+    
+
+def scrape_save_data(participants:list[str], datasite_path:Path):
+    for participant in participants:
+        participant_path = Path(datasite_path)/participant/"public"
+        participant_path.mkdir(parents=True, exist_ok=True)
+        bio_path = participant_path/"bio.txt"
+        if bio_path.exists():
+            print(f"Skipping data extraction for {participant}: bio already exists")
+            continue
+        about_me_path = participant_path / "about_me.txt"
+        resume_path = participant_path / "resume.pdf"
+        extracted_info = []
+        links = extract_links_from_file(about_me_path)
+
+        try:
+            if links['linkedin']:
+                try:
+                    linkedin_scraper = LinkedinScraper(user_email='', pwd='')
+                    profile_username = linkedin_scraper.get_profile_usr(links['linkedin'])
+                    profile_data = linkedin_scraper.scrape_profile(profile_username)
+
+                    extracted_info.append("# Linkedin Information:\n")
+                    extracted_info.append(str(profile_data))
+                except Exception as e:
+                    print(f"LinkedIn scraping failed for {participant}: {e}")
+            
+            if links['github']:
+                try:
+                    git_data = get_github_user_info(links['github'])
+
+                    extracted_info.append('# Github Information:\n')
+                    extracted_info.append(git_data)
+
+                except Exception as e:
+                    print(f"Github scraping failed for {participant}: {e}")
+
+            if resume_path:
+                try:
+                    resume_data = pdf_to_text(resume_path)
+
+                    extracted_info.append('# Resume: \n')
+                    extracted_info.append(resume_data)
+                except Exception as e:
+                    print(f"Resume parsing failed for {participant}: {e}")
+
+            if len(extracted_info)>0:
+                with open(bio_path, 'w', encoding='utf-8') as bio_file:
+                    bio_file.writelines(extracted_info)
+                    print(f"Successfully processed and saved bio for {participant}")
+            else:
+                print(f"No information found for {participant}")
+        
+        except Exception as e:
+            print(f"Overall data extraction failed for {participant}: {e}")
+
 
 # syftbox relevant main
 if __name__ == "__main__":
@@ -131,8 +219,7 @@ if __name__ == "__main__":
     # Check which participants are active (have a public/bio.txt file)
     participants = network_participants(client.datasite_path.parent)
 
-    # TODO : data scraping should be here @Vrinda
-    # scrape_save_data(participants, client.datasite_path.parent)
+    scrape_save_data(participants, client.datasite_path.parent)
 
     active_participants = make_index(participants, client.datasite_path.parent,
                                      context=global_context)
@@ -156,10 +243,14 @@ if __name__ == "__main__":
         input_path = input_query_folder / filename
         input_path.unlink(missing_ok=True)
 
-# custom test
+# #custom test
 # if __name__ == "__main__":
-#     datasite_path = "test_group_scientists"
+#     embed_model = BgeSmallEmbedModel()
+#     llm = T5LLM()
+#     global_context = create_context()
+#     datasite_path = "extra_test/scraping_test"
 #     participants = list(os.listdir(datasite_path))
-#     make_index(participants, datasite_path)
-#     resp = perform_query("summary about education of all of them?", participants, datasite_path)
+#     scrape_save_data(participants, datasite_path)
+#     make_index(participants, datasite_path, global_context)
+#     resp = perform_query("summary about education of all of them?", participants, datasite_path, embed_model, llm, global_context)
 #     print(resp)
