@@ -30,8 +30,8 @@ def index_creator(file_path: str, target_path: str, context):
 
 def load_query_engine(participants, datasite_path,
                       embed_model,
-                      llm, tokenizer,
-                      context,
+                      llm,context,
+                      tokenizer=None,
                       indexes=None):
     index_path_list = []
     for user_folder in participants:
@@ -43,7 +43,6 @@ def load_query_engine(participants, datasite_path,
         indexes_folder_paths=index_path_list,
         embedding_model=embed_model,
         llm=llm,
-        tokenizer=tokenizer,
         context=context
     )
     return graph

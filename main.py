@@ -100,37 +100,73 @@ def network_participants(datasite_path: Path):
 
     return users
 
-def extract_links_from_file(about_me_path:Path):
-        links = {
+def get_links_from_config(config_path:Path):
+    links = {
         'linkedin': None,
         'github': None,
         'google_scholar': None,
-        'twitter': None
-        }
-        try:
-            with open(about_me_path, 'r', encoding='utf-8') as file:
-                content = file.read()
-            linkedin_pattern = r'https?://(?:www\.)?linkedin\.com/in/[^\s\'"<>]+'
-            github_pattern = r'https?://(?:www\.)?github\.com/[^\s\'"<>]+'
-            scholar_pattern = r'https?://(?:www\.)?scholar\.google\.com/citations\?[^\s\'"<>]+'
+        'twitter': None,
+        'resume_path': None
+    }
 
-            linkedin_match = re.search(linkedin_pattern, content, re.IGNORECASE)
-            github_match = re.search(github_pattern, content, re.IGNORECASE)
-            scholar_match = re.search(scholar_pattern, content, re.IGNORECASE)
+    linkedin_pattern = r'https?://(?:www\.)?linkedin\.com/in/[^\s\'"<>]+'
+    github_pattern = r'https?://(?:www\.)?github\.com/[^\s\'"<>]+'
 
-            if linkedin_match:
-                links['linkedin'] = linkedin_match.group(0)
-            if github_match:
-                links['github'] = github_match.group(0)
-            if scholar_match:
-                links['google_scholar'] = scholar_match.group(0)
+    try:
+        with open(config_path, 'r', encoding='utf-8') as file:
+            content = json.load(file)
+        user_links = content.get('links', {})
+        if not isinstance(user_links, list):
+            raise ValueError("'links' should be a list in the JSON file")
+
+        for url in user_links:
+            if re.match(linkedin_pattern, url, re.IGNORECASE):
+                links['linkedin'] = url
+            elif re.match(github_pattern, url, re.IGNORECASE):
+                links['github'] = url
+
+        links['resume_path'] = content.get('resume_path', None)
+    except FileNotFoundError:
+        print(f"Config file not found at {config_path}")
+    except json.JSONDecodeError as e:
+        print(f"Error parsing JSON file: {e}")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+
+    return links
+
+# def extract_links_from_file(about_me_path:Path):
+#         links = {
+#         'linkedin': None,
+#         'github': None,
+#         'google_scholar': None,
+#         'twitter': None
+#         }
+#         try:
+#             with open(about_me_path, 'r', encoding='utf-8') as file:
+#                 content = file.read()
+#             linkedin_pattern = r'https?://(?:www\.)?linkedin\.com/in/[^\s\'"<>]+'
+#             github_pattern = r'https?://(?:www\.)?github\.com/[^\s\'"<>]+'
+#             scholar_pattern = r'https?://(?:www\.)?scholar\.google\.com/citations\?[^\s\'"<>]+'
+
+#             linkedin_match = re.search(linkedin_pattern, content, re.IGNORECASE)
+#             github_match = re.search(github_pattern, content, re.IGNORECASE)
+#             scholar_match = re.search(scholar_pattern, content, re.IGNORECASE)
+
+#             if linkedin_match:
+#                 links['linkedin'] = linkedin_match.group(0)
+#             if github_match:
+#                 links['github'] = github_match.group(0)
+#             if scholar_match:
+#                 links['google_scholar'] = scholar_match.group(0)
         
-        except FileNotFoundError:
-            print(f"about_me.txt not found at {about_me_path}")
-        except Exception as e:
-            print(f"Error reading about_me.txt: {e}")
-        print(links)
-        return links
+#         except FileNotFoundError:
+#             print(f"about_me.txt not found at {about_me_path}")
+#         except Exception as e:
+#             print(f"Error reading about_me.txt: {e}")
+#         print(links)
+#         return links
     
 
 def scrape_save_data(participants:list[str], datasite_path:Path):
@@ -141,10 +177,9 @@ def scrape_save_data(participants:list[str], datasite_path:Path):
         if bio_path.exists():
             print(f"Skipping data extraction for {participant}: bio already exists")
             continue
-        about_me_path = participant_path / "about_me.txt"
-        resume_path = participant_path / "resume.pdf"
+        config_path = participant_path / "config.json"
+        links = get_links_from_config(config_path)
         extracted_info = []
-        links = extract_links_from_file(about_me_path)
 
         try:
             if links['linkedin']:
@@ -168,9 +203,10 @@ def scrape_save_data(participants:list[str], datasite_path:Path):
                 except Exception as e:
                     print(f"Github scraping failed for {participant}: {e}")
 
-            if resume_path:
+            if links['resume_path']:
+                print(f"RESUME PATH: {links['resume_path']}")
                 try:
-                    resume_data = pdf_to_text(resume_path)
+                    resume_data = pdf_to_text(links['resume_path'])
 
                     extracted_info.append('# Resume: \n')
                     extracted_info.append(resume_data)
@@ -188,69 +224,74 @@ def scrape_save_data(participants:list[str], datasite_path:Path):
             print(f"Overall data extraction failed for {participant}: {e}")
 
 
-# syftbox relevant main
-if __name__ == "__main__":
-
-    # client and models loading
-    client = Client.load()
-    embed_model = BgeSmallEmbedModel()
-    llm = T5LLM()
-
-    global_context = create_context()
-
-    # Setup folder paths
-    output_folder = client.datasite_path / "api_data" / \
-        "federated_rag" / "timestamp_recorder"
-    input_query_folder = client.datasite_path / \
-        "api_data" / "federated_rag" / "query_inbox"
-    output_query_folder = client.datasite_path / \
-        "api_data" / "federated_rag" / "query_outputs"
-
-    for folder in [output_folder, input_query_folder, output_query_folder]:
-        os.makedirs(folder, exist_ok=True)
-
-    # Check if should run
-    output_file_path = output_folder / "last_run.json"
-    if not should_run(output_file_path):
-        print("Skipping execution of federated_rag, not enough time has passed.")
-        exit()
-    save_run(output_folder, output_file_path)
-
-    # Check which participants are active (have a public/bio.txt file)
-    participants = network_participants(client.datasite_path.parent)
-
-    scrape_save_data(participants, client.datasite_path.parent)
-
-    active_participants = make_index(participants, client.datasite_path.parent,
-                                     context=global_context)
-
-    # Use their public data to answer the question I added
-    queries = load_queries(input_query_folder)
-    for filename, query in queries.items():
-        response = perform_query(query, active_participants,
-                                 client.datasite_path.parent,
-                                 embed_model=embed_model, llm=llm,
-                                 context=global_context)
-        print(response)
-        output_response_path = output_query_folder / \
-            "{}_{}.txt".format(filename.split('.')[0], datetime.now().date())
-
-        with open(output_response_path, "w") as file:
-            output = "Query: {}\nResponse: {}\n".format(query, response)
-            file.write(output)
-
-        # Remove query input
-        input_path = input_query_folder / filename
-        input_path.unlink(missing_ok=True)
-
-# #custom test
+# # syftbox relevant main
 # if __name__ == "__main__":
+
+#     # client and models loading
+#     client = Client.load()
 #     embed_model = BgeSmallEmbedModel()
 #     llm = T5LLM()
+
 #     global_context = create_context()
-#     datasite_path = "extra_test/scraping_test"
-#     participants = list(os.listdir(datasite_path))
-#     scrape_save_data(participants, datasite_path)
-#     make_index(participants, datasite_path, global_context)
-#     resp = perform_query("summary about education of all of them?", participants, datasite_path, embed_model, llm, global_context)
-#     print(resp)
+
+#     # Setup folder paths
+#     output_folder = client.datasite_path / "api_data" / \
+#         "federated_rag" / "timestamp_recorder"
+#     input_query_folder = client.datasite_path / \
+#         "api_data" / "federated_rag" / "query_inbox"
+#     output_query_folder = client.datasite_path / \
+#         "api_data" / "federated_rag" / "query_outputs"
+
+#     for folder in [output_folder, input_query_folder, output_query_folder]:
+#         os.makedirs(folder, exist_ok=True)
+
+#     # Check if should run
+#     output_file_path = output_folder / "last_run.json"
+#     if not should_run(output_file_path):
+#         print("Skipping execution of federated_rag, not enough time has passed.")
+#         exit()
+#     save_run(output_folder, output_file_path)
+
+#     # Check which participants are active (have a public/bio.txt file)
+#     participants = network_participants(client.datasite_path.parent)
+
+#     scrape_save_data(participants, client.datasite_path.parent)
+
+#     active_participants = make_index(participants, client.datasite_path.parent,
+#                                      context=global_context)
+
+#     # Use their public data to answer the question I added
+#     queries = load_queries(input_query_folder)
+#     for filename, query in queries.items():
+#         response = perform_query(query, active_participants,
+#                                  client.datasite_path.parent,
+#                                  embed_model=embed_model, llm=llm,
+#                                  context=global_context)
+#         print(response)
+#         output_response_path = output_query_folder / \
+#             "{}_{}.txt".format(filename.split('.')[0], datetime.now().date())
+
+#         with open(output_response_path, "w") as file:
+#             output = "Query: {}\nResponse: {}\n".format(query, response)
+#             file.write(output)
+
+#         # Remove query input
+#         input_path = input_query_folder / filename
+#         input_path.unlink(missing_ok=True)
+
+#custom test
+if __name__ == "__main__":
+    embed_model = BgeSmallEmbedModel()
+    llm = T5LLM()
+    global_context = create_context()
+    datasite_path = "extra_test/scraping_test"
+    participants = list(os.listdir(datasite_path))
+    scrape_save_data(participants, datasite_path)
+    make_index(participants, datasite_path, global_context)
+    resp = perform_query(query="summary about education of all of them?",
+                         participants= participants,
+                         datasite_path= datasite_path,
+                         embed_model= embed_model,
+                         llm= llm,
+                         context= global_context)
+    print(resp)
