@@ -1,0 +1,115 @@
+# Github Information:
+
+
+🧐 About Me
+👋 Hi there! I'm Animikh, a Machine Learning Engineer with a passion for Anime and Video Games. I'm currently working as a Computer Vision and Machine Learning Engineer at Moultrie - An EBSCO Company. Here, we're developing next-generation Computer Vision algorithms for Cellular Trail Cameras, aimed at enhancing wildlife monitoring.
+I graduated with an MS in AI from Boston University, where I worked under Prof. Eshed Ohn-Bar at the H2X Lab. My research focused on end-to-end Autonomous Driving, specifically on closing the Sim2Real gap and developing offline and online driving evaluation metrics for my thesis.
+Previously, I was the Computer Vision Engineer and Lead at Wobot.ai, where I spearheaded the development of a robust deep learning tech stack that powers real-time video analytics across hundreds of cameras worldwide.
+I ❤️ building things and strongly believe that Multi-Modal Self-Supervised Learning is key to AGI 🤫. My areas of focus include Generative AI, Multi-Modal Learning, and more.
+I'm always open to new opportunities and a good chat ☕. Feel free to connect with me on LinkedIn or reach out at animikhaich@gmail.com.
+💻 Tech Stack
+Tools
+
+
+
+
+
+
+
+
+
+Languages++
+
+
+
+
+
+
+
+
+Machine Learning & AI
+
+
+
+
+
+
+
+
+
+Web Development
+
+
+
+
+
+
+Cloud
+
+
+
+
+
+📊 Some Stats
+
+
+
+
+🔗 Connect With Me
+
+
+
+
+
+# Resume: 
+VRINDA KOHLI
+(+91) 8091701861 ⋄Email ⋄LinkedIn ⋄GitHub ⋄Website
+EDUCATION
+Bachelor of Technology , Manipal University Jaipur 2020 - 2024
+Computer Science Engineering CGPA : 9.26
+Awards: 4x Dean’s List, Award for Academic Excellence Minor: Data Science
+EXPERIENCE
+Machine Learning Engineer Jan 2024 - Present
+Gloroots Bengaluru, Karnataka
+•Orchestrated end-to-end enrichment pipeline for technical and sales teams, elevating data coverage by more than 90%.
+•Leveraged open source LLMs (Mistral, LLaMA) for building 3 in-house applications, and designed custom AI agents.
+•Contributing to development of embedding based job recommender engines, focusing on low latency reranking algorithms.
+•Facilitating seamless API creation and integrations within the Django, MongoDB and PostgreSQL based product workflow.
+Research Assistant August 2023 - Jan 2024
+BITLab, Boston University Remote
+•Developed a scalable tool for scraping product details from Amazon, successfully capturing 15+ attributes for over 30,000
+products.
+•Conducted sentiment analysis and experimentation on customer insights using scraped data to identify correlations between
+sales and the green attributes of skincare products.
+•Contributed to a LangChain-based multi-agent environment for experimenting with inter-agent interactions, utilizing tools
+like SerpAPI and OpenAI models.
+Research Intern May 2023 - August 2023
+Delhi Technological University New Delhi
+•Used transfer learning and transformer models for flash flood detection using geospatial raster imaging, improving perfor-
+mance by 8%.
+•Implemented and validated 7 recent research papers on Deep Learning aided Metaphor Detection, including transformer
+and RNN based Siamese approaches.
+•Achieved 2% average accuracy improvement over existing methods during experimentation.
+Research and Development Intern July 2022 - Nov 2022
+Trish-i, IIT Mandi Catalyst Mandi, Himachal Pradesh
+•Developed end-to-end pipeline for classification task: from data collection and labeling to deployment via Flask.
+•Trained VGG and YOLO based CNN architectures to predict 5 bone health conditions from X-Ray images with upto 94%
+accuracy using Tensorflow and Keras.
+•Finetuned aforementioned models, leading to an 11% performance spike.
+PUBLICATIONS
+•Cracking the Figurative Code: A Survey of Metaphor Detection Techniques Presented, ADCIS’23
+•Finding GAIA (Generative AI Art) Online Under Review
+•Observing the Privacy-Utility Tradeoff in Differentially Private Medical Text Classifiers Under Review
+PROJECTS
+AI Generated Art Detection :JPEG-Compression Agnostic Detection of Generative Art on Social Media.
+•Designed and implemented a lightweight architecture for detecting StyleGAN2-ADA and Stable Diffusion generated images
+using feature engineering and XGBoost ensembles.
+•Achieved over 95% accuracy while using less than 20% of standard training data.
+GPT Implementation :Generatively Pretrained Transformer for generating Shakespearean-style quotes. GitHub
+•Developed a GPT model architecture and its components(tokenizers, multihead attention) from scratch using Python.
+PATE Implementation :Semi-supervised Knowledge Transfer for DL from Private Training Data. GitHub
+•Implemented the seminal PATE paper for Differentially Private training using PyTorch and PySyft on the MNIST dataset.
+SKILLS
+Languages Python, C/C++, JavaScript, SQL
+Frameworks PyTorch, PyTorch Lightning, Langchain, Flask, Django, FastAPI
+Tools Git, Linux, Figma, Google Cloud Platform (GCP)
