@@ -4,7 +4,7 @@
 # In[1]:
 
 
-#pip install tenseal
+# pip install tenseal
 
 
 # Function 1
@@ -16,32 +16,40 @@ import tenseal as ts
 import json
 import numpy as np
 from pathlib import Path
+
+
 def create_context():   # TenSEAL Context for key generation
-    context = ts.context(ts.SCHEME_TYPE.CKKS, poly_modulus_degree=8192, coeff_mod_bit_sizes=[60, 40, 40, 60])
+    context = ts.context(ts.SCHEME_TYPE.CKKS, poly_modulus_degree=8192,
+                         coeff_mod_bit_sizes=[60, 40, 40, 60])
     context.generate_galois_keys()
     context.global_scale = 2**40
     return context
 
+
 def encrypt_data(data, context):    # Encryption
     return ts.ckks_vector(context, data)
 
+
 def encrypted_dot_product(vector1, vector2, context):   # Function/Computation
     encrypted_vector1 = encrypt_data(vector1, context)
-    encrypted_vector2 = encrypt_data(vector2, context)                                                            
-    encrypted_result = encrypted_vector1.dot(encrypted_vector2) # Perform the dot product
-    
+    encrypted_vector2 = encrypt_data(vector2, context)
+    encrypted_result = encrypted_vector1.dot(
+        encrypted_vector2)  # Perform the dot product
+
     decrypted_result = encrypted_result.decrypt()   # Decryption
-    
+
     return decrypted_result
 
+
 if __name__ == "__main__":
-    vector1 = [1, 2, 3, 4]  #example case
+    vector1 = [1, 2, 3, 4]  # example case
     vector2 = [5, 6, 7, 8]
-    
+
     context = create_context()  # Create context
-    
-    result = encrypted_dot_product(vector1, vector2, context)       # Encrypted Computation
-    
+
+    result = encrypted_dot_product(
+        vector1, vector2, context)       # Encrypted Computation
+
     print(f"The dot product of the two vectors is: {result}")
 
 
@@ -55,11 +63,13 @@ def read_embeddings(input_file: str):
     return data
 
 # Function to encrypt the embeddings and store in a new JSON file
+
+
 def encrypt_and_store_embeddings(input_file: str, output_file: str):
     context = create_context()
     embeddings = read_embeddings(input_file)
 
-    encrypted_embeddings = {}   
+    encrypted_embeddings = {}
     for key, value in embeddings.items():
         # Ensure value is a list or numpy array of floats
         if isinstance(value, list):
@@ -71,7 +81,8 @@ def encrypt_and_store_embeddings(input_file: str, output_file: str):
 
         # Encrypt the value using CKKS
         encrypted_value = ts.ckks_vector(context, value)
-        encrypted_embeddings[key] = encrypted_value.serialize()  # Serialize the encrypted vector
+        # Serialize the encrypted vector
+        encrypted_embeddings[key] = encrypted_value.serialize()
 
     # Write the encrypted embeddings to the output JSON file
     with open(output_file, 'w') as file:
@@ -79,10 +90,13 @@ def encrypt_and_store_embeddings(input_file: str, output_file: str):
 
     print(f"Encrypted embeddings have been saved to {output_file}")
 
+
 # Example usage:
 if __name__ == "__main__":
-    input_path = 'test_group_scientists/a/public/vector_index/default__vector_store.json'  # Path to input vector store
-    output_path = 'test_group_scientists/a/public/vector_index/encrypted_vector_store.json'  # Path for storing encrypted embeddings
+    # Path to input vector store
+    input_path = 'test_group_scientists/a/public/vector_index/default__vector_store.json'
+    # Path for storing encrypted embeddings
+    output_path = 'test_group_scientists/a/public/vector_index/encrypted_vector_store.json'
     encrypt_and_store_embeddings(input_path, output_path)
 
 
@@ -103,7 +117,8 @@ def decrypt_and_store_embeddings(input_file: str, output_file: str, context):
     # Decrypt each embedding
     for key, encrypted_value in encrypted_embeddings.items():
         # Deserialize the encrypted vector
-        encrypted_vector = ts.ckks_vector_from(serialized=encrypted_value, context=context)
+        encrypted_vector = ts.ckks_vector_from(
+            serialized=encrypted_value, context=context)
         decrypted_value = encrypted_vector.decrypt()  # Decrypt the vector
 
         # Convert the decrypted value to a list and store it
@@ -115,13 +130,15 @@ def decrypt_and_store_embeddings(input_file: str, output_file: str, context):
 
     print(f"Decrypted embeddings have been saved to {output_file}")
 
+
 # Example usage:
 if __name__ == "__main__":
-    input_path = 'test_group_scientists/a/public/vector_index/encrypted_vector_store.json'  # Path to input encrypted embeddings
-    output_path = 'test_group_scientists/a/public/vector_index/decrypted_vector_store.json'  # Path for storing decrypted embeddings
+    # Path to input encrypted embeddings
+    input_path = 'test_group_scientists/a/public/vector_index/encrypted_vector_store.json'
+    # Path for storing decrypted embeddings
+    output_path = 'test_group_scientists/a/public/vector_index/decrypted_vector_store.json'
 
     # Create context using the same parameters as used for encryption
     context = create_context()
 
     decrypt_and_store_embeddings(input_path, output_path, context)
-
