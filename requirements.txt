@@ -13,3 +13,4 @@ linkedin-api
 PyPDF2
 google-generativeai
 tenseal
+gradio
