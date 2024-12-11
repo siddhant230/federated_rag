@@ -13,6 +13,7 @@ from src.rag_utils import index_creator, load_query_engine
 from src.data_utils.linkedin_extractor import LinkedinScraper
 from src.data_utils.resume_extractor import pdf_to_text
 from src.data_utils.github_extractor import get_github_user_info
+from src.utils import remove_emails_and_phone_numbers
 
 
 def should_run(output_file_path: str) -> bool:
@@ -100,7 +101,8 @@ def network_participants(datasite_path: Path):
 
     return users
 
-def get_links_from_config(config_path:Path):
+
+def get_links_from_config(config_path: Path):
     links = {
         'linkedin': None,
         'github': None,
@@ -133,17 +135,17 @@ def get_links_from_config(config_path:Path):
     except Exception as e:
         print(f"An error occurred: {e}")
 
-
     return links
 
 
-def scrape_save_data(participants:list[str], datasite_path:Path):
+def scrape_save_data(participants: list[str], datasite_path: Path):
     for participant in participants:
         participant_path = Path(datasite_path)/participant/"public"
         participant_path.mkdir(parents=True, exist_ok=True)
         bio_path = participant_path/"bio.txt"
         if bio_path.exists():
-            print(f"Skipping data extraction for {participant}: bio already exists")
+            print(
+                f"Skipping data extraction for {participant}: bio already exists")
             continue
         config_path = participant_path / "config.json"
         links = get_links_from_config(config_path)
@@ -153,20 +155,24 @@ def scrape_save_data(participants:list[str], datasite_path:Path):
             if links['linkedin']:
                 try:
                     linkedin_scraper = LinkedinScraper(user_email='', pwd='')
-                    profile_username = linkedin_scraper.get_profile_usr(links['linkedin'])
-                    profile_data = linkedin_scraper.scrape_profile(profile_username)
+                    profile_username = linkedin_scraper.get_profile_usr(
+                        links['linkedin'])
+                    profile_data = linkedin_scraper.scrape_profile(
+                        profile_username)
 
                     extracted_info.append("# Linkedin Information:\n")
-                    extracted_info.append(str(profile_data))
+                    extracted_info.append(
+                        remove_emails_and_phone_numbers(str(profile_data)))
                 except Exception as e:
                     print(f"LinkedIn scraping failed for {participant}: {e}")
-            
+
             if links['github']:
                 try:
                     git_data = get_github_user_info(links['github'])
 
                     extracted_info.append('# Github Information:\n')
-                    extracted_info.append(git_data)
+                    extracted_info.append(
+                        remove_emails_and_phone_numbers(git_data))
 
                 except Exception as e:
                     print(f"Github scraping failed for {participant}: {e}")
@@ -177,17 +183,19 @@ def scrape_save_data(participants:list[str], datasite_path:Path):
                     resume_data = pdf_to_text(links['resume_path'])
 
                     extracted_info.append('# Resume: \n')
-                    extracted_info.append(resume_data)
+                    extracted_info.append(
+                        remove_emails_and_phone_numbers(resume_data))
                 except Exception as e:
                     print(f"Resume parsing failed for {participant}: {e}")
 
-            if len(extracted_info)>0:
+            if len(extracted_info) > 0:
                 with open(bio_path, 'w', encoding='utf-8') as bio_file:
                     bio_file.writelines(extracted_info)
-                    print(f"Successfully processed and saved bio for {participant}")
+                    print(
+                        f"Successfully processed and saved bio for {participant}")
             else:
                 print(f"No information found for {participant}")
-        
+
         except Exception as e:
             print(f"Overall data extraction failed for {participant}: {e}")
 
@@ -247,7 +255,7 @@ def scrape_save_data(participants:list[str], datasite_path:Path):
 #         input_path = input_query_folder / filename
 #         input_path.unlink(missing_ok=True)
 
-#custom test
+# custom test
 if __name__ == "__main__":
     embed_model = BgeSmallEmbedModel()
     llm = T5LLM()
@@ -258,9 +266,9 @@ if __name__ == "__main__":
     scrape_save_data(participants, datasite_path)
     make_index(participants, datasite_path, global_context)
     resp = perform_query(query="what is the person's job role?",
-                         participants= participants,
-                         datasite_path= datasite_path,
-                         embed_model= embed_model,
-                         llm= llm,
-                         context= global_context)
+                         participants=participants,
+                         datasite_path=datasite_path,
+                         embed_model=embed_model,
+                         llm=llm,
+                         context=global_context)
     print(resp)
