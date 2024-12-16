@@ -55,6 +55,8 @@ Each participant's SyftBox directory structure includes:
 
 ### API Operation Cycle
 
+<img src="imgs/flow.png">
+
 Every 10 @irina seconds, the Fed-RAG API performs the following tasks:
 
 1. _**Data Scraping**_: Reads about_me JSON file from the `public/` folder, performs web scraping and saves the scraped data to `public/bio.txt`.
@@ -110,7 +112,7 @@ SyftBox will automatically detect and install the new API during its execution c
 
 ### Accessing the Web Interface
 
-@ifra @irina
+<img src="imgs/ui_ss.png">
 
 1. **Open in Browser**: Paste the above URL into your browser’s address bar to access the fed-rag interface.
 
