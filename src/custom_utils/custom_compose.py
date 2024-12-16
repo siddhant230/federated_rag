@@ -15,12 +15,13 @@ from src.custom_utils.encryptors import (encrypt_embeddings,
 class GraphComposer:
     def __init__(self, indexes_folder_paths: list,
                  embedding_model,
-                 llm, context):
+                 llm, context, context_list):
         self.indexes_folder_paths = indexes_folder_paths
         # embedding mdoel has to be a HuggingFaceEmbedding class for Settings to function
         self.embedding_model = embedding_model
         self.llm = llm
-        self.context = context
+        self.context = context  # would be None in case of non-global/user-level key
+        self.context_list = context_list
         # setting again might not be required, as Settings.embed_model works globally
         Settings.embed_model = embedding_model.embedding_model
         self.compose_indexes()
@@ -33,11 +34,11 @@ class GraphComposer:
 
     def compose_indexes(self):
         indexes = []
-        for index_folder in self.indexes_folder_paths:
+        for index_folder, context in zip(self.indexes_folder_paths, self.context_list):
             base_index, storage_context = self.load_from_disk(index_folder)
             custom_index = CustomIndex(
                 base_index, storage_context, index_folder,
-                encryption_context=self.context)
+                encryption_context=context)
             indexes.append(custom_index)
 
         self.stack_info(indexes)
@@ -49,6 +50,7 @@ class GraphComposer:
         self.global_node_info = []
         self.global_text_info = []
         self.global_extra_info = []
+        self.global_context_list = []
 
         for index in indexes:
             self.global_encrypted_embedding_matrix.extend(
@@ -58,6 +60,7 @@ class GraphComposer:
             self.global_node_info.extend(index.node_info)
             self.global_text_info.extend(index.text_info)
             self.global_extra_info.extend(index.extra_info)
+            self.global_context_list.extend(index.index_context_list)
 
         self.global_unencrypted_embedding_matrix = np.array(
             self.global_unencrypted_embedding_matrix)
@@ -68,13 +71,11 @@ class GraphComposer:
         # get query embeds
         top_k = min(top_k, len(self.global_encrypted_embedding_matrix))
         query_embedding = self.embedding_model.embed_data(query)
-        # encrypt query embeds
-        encrypted_query_embedding = encrypt_embeddings(
-            query_embedding, context=self.context)
 
         # apply distance/sim metric
         similarity_scores = encrypted_dot_product(
-            encrypted_query_embedding, self.global_encrypted_embedding_matrix).reshape(-1,)
+            query_embedding, self.global_encrypted_embedding_matrix,
+            self.global_context_list).reshape(-1,)
         # select top_k
         top_k_indices = np.argpartition(similarity_scores, -top_k)[-top_k:]
 
@@ -89,7 +90,7 @@ class GraphComposer:
             "query": query,
             "collected_text_info": collected_text_info,
             "query_embedding": query_embedding,
-            "encrypted_query_embedding": encrypted_query_embedding,
+            "encrypted_query_embedding": None,
             "similarity_scores": similarity_scores,
             "top_k_indices": top_k_indices,
             "top_k_node_ids": top_k_node_ids

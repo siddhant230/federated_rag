@@ -13,14 +13,32 @@ def create_context():   # TenSEAL Context for key generation
     return context
 
 
+def read_context(filepath):
+    with open(filepath, 'rb') as f:
+        context = f.read()
+    return base64.b64decode(context)
+
+
+def write_context(context, filepath):
+    if type(context) == bytes:
+        context = base64.b64encode(context)
+
+    with open(filepath, 'wb') as f:
+        f.write(context)
+
+
 def encrypt_embeddings(data, context):    # Encryption
     return ts.ckks_vector(context, data)
 
 
-def encrypted_dot_product(query_vector, key_matrix):   # Function/Computation
+# Function/Computation
+def encrypted_dot_product(query_vector, key_matrix, index_context_list):
     alignment_score = []
-    for m in key_matrix:
-        encrypted_result = query_vector.dot(m)  # Perform the dot product
+    for idx, m in enumerate(key_matrix):
+        encrypted_query_embedding = encrypt_embeddings(
+            query_vector, context=index_context_list[idx])
+        encrypted_result = encrypted_query_embedding.dot(
+            m)  # Perform the dot product
         decrypted_result = encrypted_result.decrypt()   # Decryption
         alignment_score.append(decrypted_result)
     return np.array(alignment_score)
@@ -69,6 +87,11 @@ def encrypt_and_store_embeddings(input_folder: str,
         json.dump({"embedding_dict": str(encrypted_embeddings)}, f)
 
     print(f"Encrypted embeddings have been saved to {out_path}")
+
+    # saving the contex for user
+    context_path = os.path.join(input_folder, "secret_context.txt")
+    write_context(context=context,
+                  filepath=context_path)
 
 
 def decrypt_embeddings(x):

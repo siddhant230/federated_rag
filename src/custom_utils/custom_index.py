@@ -43,6 +43,7 @@ class CustomIndex:
         self.node_info = []
         self.text_info = []
         self.extra_info = []
+        self.index_context_list = []
 
         for node_id, embedding in self.base_index.vector_store.data.embedding_dict.items():
             node = self.base_index.docstore.get_node(node_id)
@@ -53,6 +54,8 @@ class CustomIndex:
             self.node_info.append(node)
             self.text_info.append(node.text)
             self.extra_info.append(node.extra_info)
+            self.index_context_list.append(self.encryption_context)
+
         self.encrypted_embedding_matrix = np.array(
             self.encrypted_embedding_matrix)
         self.unencrypted_embedding_matrix = np.array(

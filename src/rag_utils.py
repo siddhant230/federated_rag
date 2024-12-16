@@ -11,7 +11,7 @@ from llama_index.core import (
 from src.custom_utils.custom_compose import GraphComposer
 
 # TODO : Parth : Implement this file
-from src.custom_utils.encryptors import encrypt_and_store_embeddings
+from src.custom_utils.encryptors import encrypt_and_store_embeddings, read_context
 
 
 def index_creator(file_path: str, target_path: str, context):
@@ -23,7 +23,7 @@ def index_creator(file_path: str, target_path: str, context):
 
     index.storage_context.persist(persist_dir=target_path)
     print(f"Index created for {file_path}")
-    # encrypt_and_store_embeddings(input_folder=target_path, context=context)
+    encrypt_and_store_embeddings(input_folder=target_path, context=context)
     print("Embeddings encrypted and saved!")
     return index
 
@@ -34,15 +34,22 @@ def load_query_engine(participants, datasite_path,
                       context,
                       indexes=None):
     index_path_list = []
+    context_list = []
     for user_folder in participants:
         index_path: Path = Path(datasite_path) / \
             user_folder / "public" / "vector_index"
+        context_path: Path = Path(datasite_path) / \
+            user_folder / "public" / "secret_context.txt"
+
+        context = read_context(context_path)
         index_path_list.append(index_path)
+        context_list.append(context)
 
     graph = GraphComposer(
         indexes_folder_paths=index_path_list,
         embedding_model=embed_model,
         llm=llm,
-        context=context
+        context=None,
+        context_list=context_list
     )
     return graph
