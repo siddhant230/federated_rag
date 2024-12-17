@@ -34,12 +34,9 @@ check_os() {
 # Function to check if Ollama is already installed
 check_ollama_installed() {
     if command -v ollama &>/dev/null; then
-        echo "✅ Ollama is already installed. Version:"
-        ollama --version
-        return 1
+        echo 1
     else
-        echo "ℹ️ Ollama is not installed. Proceeding with installation..."
-        return 0
+        echo 0
     fi
 }
 
@@ -85,11 +82,16 @@ echo "Starting Ollama installation..."
 check_os
 
 # Step 2: Perform installation based on OS
-if [[ "$OS" == "macos" && $(check_ollama_installed) == 1 ]]; then
+installed_flag=$(check_ollama_installed)
+
+if [[ "$OS" == "macos" && $installed_flag -eq 0 ]]; then
     check_homebrew
     install_ollama_macos
-elif [[ "$OS" == "linux" && $(check_ollama_installed) == 1 ]]; then
+elif [[ "$OS" == "linux" && $installed_flag -eq 0 ]]; then
     install_ollama_linux
+else
+    echo "✅ Ollama is already installed. Version:"
+    ollama --version
 fi
 
 # Step 3: Verify Ollama installation
