@@ -4,7 +4,7 @@ from pathlib import Path
 
 from llama_index.core import (
     VectorStoreIndex,
-    SimpleDirectoryReader
+    SimpleDirectoryReader,
 )
 
 # custom imports
@@ -14,11 +14,14 @@ from src.custom_utils.custom_compose import GraphComposer
 from src.custom_utils.encryptors import encrypt_and_store_embeddings
 
 
-def index_creator(file_path: str, target_path: str, context):
+def index_creator(file_path: str, target_path: str, context, node_pipeline):
     # if os.path.exists(Path(target_path) / "vector_index"):
     #     return []
     doc = SimpleDirectoryReader(input_files=[file_path]).load_data()
-    index = VectorStoreIndex.from_documents(doc)
+    # run the pipeline
+    nodes = node_pipeline.run(documents=doc)
+    index = VectorStoreIndex(nodes)
+
     target_path = Path(target_path) / "vector_index"
     if os.path.exists(target_path):
         shutil.rmtree(target_path)

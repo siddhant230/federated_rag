@@ -1,5 +1,5 @@
 import json
-
+import time
 from transformers import T5Tokenizer, T5ForConditionalGeneration
 import google.generativeai as genai
 from llama_index.llms.ollama import Ollama
@@ -101,7 +101,10 @@ class OllamaLLM(BaseLLModel):
     def make_prompt(self, context, query):
         return InfoRetriever.OLLAMA_QWEN_PROMPT.format(context, query)
 
-    def generate_response(self, context, query):
+    def generate_response(self, context, query, show_time=True):
         prompt = self.make_prompt(context, query)
+        start = time.time()
         response = self.llm.complete(prompt)
-        return response.text
+        end = time.time()
+        time_taken = end - start
+        return response.text + f"\n" + f"Time taken for reponse : {time_taken:.2f} seconds"

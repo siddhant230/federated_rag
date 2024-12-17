@@ -14,10 +14,16 @@ from main import (
     perform_query,
     scrape_save_data
 )
+from llama_index.core.ingestion import IngestionPipeline
+from llama_index.core.node_parser import SentenceSplitter
 
 embed_model = BgeSmallEmbedModel()
 llm = OllamaLLM()  # T5LLM() #local setup
+
 global_context = create_context()
+pipeline = IngestionPipeline(
+    transformations=[SentenceSplitter(
+        chunk_size=50, chunk_overlap=10), embed_model.embedding_model])
 
 
 class SessionState:
@@ -27,6 +33,7 @@ class SessionState:
         self.gemini_key = None
         self.datasite_path = Path(os.path.expanduser(
             "~")) / ".federated_rag" / "data"
+        # self.datasite_path = Path("extra_test/scraping_test")
         self.participants = []
         self.session_name = "Untitled Session"
         self.query_count = 0
@@ -46,7 +53,8 @@ def initialize_backend():
         active_participants = make_index(
             session.participants,
             session.datasite_path,
-            global_context
+            global_context,
+            pipeline=pipeline
         )
         return active_participants
     except Exception as e:
@@ -69,13 +77,13 @@ def process_message(message, history, model_choice, gemini_key=None, file=None):
             response = response_obj
         else:
             response = f"Processing with Gemini: {message}"
-            llm = GeminiLLM(api_key_path=gemini_key)
+            gemini_llm = GeminiLLM(api_key_path=gemini_key)
             response_obj = perform_query(
                 query=message,
                 participants=session.participants,
                 datasite_path=session.datasite_path,
                 embed_model=embed_model,
-                llm=llm,
+                llm=gemini_llm,
                 context=global_context
             )
             response = response_obj

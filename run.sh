@@ -14,7 +14,15 @@ fi
 uv pip install --upgrade -r requirements.txt --quiet
 
 # setup ollama
-curl -fsSL https://ollama.com/install.sh | sh
+# Check if Ollama is installed
+if command -v ollama &> /dev/null; then
+  echo "Ollama is already installed."
+else
+  echo "Ollama is not installed. Installing..."
+  # Download and run the Ollama install script
+  curl -fsSL https://ollama.com/install.sh | sh
+  echo "Ollama installed successfully."
+fi
 
 # install ollama qwen2:1.5b
 ollama pull qwen2:1.5b # default model

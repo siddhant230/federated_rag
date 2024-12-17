@@ -44,7 +44,7 @@ def save_run(output_folder: str, output_file_path: str):
     print(f"Timestamp has been written to {output_file_path}")
 
 
-def make_index(participants: list[str], datasite_path: Path, context):
+def make_index(participants: list[str], datasite_path: Path, context, pipeline):
     print("Computing indices")
     indexes = {}
     active_participants = []
@@ -53,7 +53,7 @@ def make_index(participants: list[str], datasite_path: Path, context):
             user_folder / "public" / "bio.txt"
         if value_file.exists():
             index = index_creator(value_file, target_path=Path(
-                datasite_path) / user_folder / "public", context=context)
+                datasite_path) / user_folder / "public", context=context, node_pipeline=pipeline)
             indexes[user_folder] = index
             active_participants.append(user_folder)
     print("Found {} indices and the active participants are: {}".format(
@@ -85,7 +85,7 @@ def perform_query(query, participants: list[str], datasite_path: Path,
                                     llm=llm, context=context)
     print("Engine ready for querying..")
     print("generating response!")
-    response = midx_engine.generate(query)
+    response = midx_engine.generate(query, top_k=3)
     print("Query was executed succesfully.")
     return response
 
