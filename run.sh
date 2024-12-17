@@ -85,7 +85,7 @@ echo "Starting Ollama installation..."
 check_os
 
 # Step 2: Perform installation based on OS
-if [[ "$OS" == "macos" ]]; then
+if [[ "$OS" == "macos" && $(check_ollama_installed) == 1 ]]; then
     check_homebrew
     install_ollama_macos
 elif [[ "$OS" == "linux" && $(check_ollama_installed) == 1 ]]; then
