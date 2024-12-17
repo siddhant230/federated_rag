@@ -11,3 +11,9 @@ class InfoRetriever:
               Question: {}
               Answer:
             """
+    OLLAMA_QWEN_PROMPT = """
+              Answer from given context, Be very specific and accurate.
+              {}
+              Question: {}
+              Answer:
+            """

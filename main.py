@@ -7,7 +7,7 @@ import re
 
 from src.custom_utils.encryptors import create_context
 from src.lm_utils.embedding_models.base_embeds import BgeSmallEmbedModel
-from src.lm_utils.llms.base_lm import T5LLM
+from src.lm_utils.llms.base_lm import T5LLM, GeminiLLM, OllamaLLM
 from src.rag_utils import index_creator, load_query_engine
 
 from src.data_utils.linkedin_extractor import LinkedinScraper
@@ -258,7 +258,7 @@ def scrape_save_data(participants: list[str], datasite_path: Path):
 # custom test
 if __name__ == "__main__":
     embed_model = BgeSmallEmbedModel()
-    llm = T5LLM()
+    llm = OllamaLLM()  # T5LLM()
     global_context = create_context()
     print(f"GLOBAL CONTEXT: {global_context}")
     datasite_path = "extra_test/scraping_test"

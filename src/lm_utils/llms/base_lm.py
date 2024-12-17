@@ -2,6 +2,7 @@ import json
 
 from transformers import T5Tokenizer, T5ForConditionalGeneration
 import google.generativeai as genai
+from llama_index.llms.ollama import Ollama
 
 from src.lm_utils.prompts import InfoRetriever
 
@@ -86,3 +87,21 @@ class GeminiLLM(BaseLLModel):
         prompt = self.make_prompt(context, query)
         response = self.llm.generate_content(prompt)
         return response
+
+
+class OllamaLLM(BaseLLModel):
+    def __init__(self,
+                 model_name='qwen2:1.5b', max_tokens=100):
+        super().__init__(model_name, None)
+        self.max_tokens = max_tokens
+        self.llm = Ollama(model=model_name,
+                          request_timeout=120.0,
+                          additional_kwargs={"num_predict": max_tokens})
+
+    def make_prompt(self, context, query):
+        return InfoRetriever.OLLAMA_QWEN_PROMPT.format(context, query)
+
+    def generate_response(self, context, query):
+        prompt = self.make_prompt(context, query)
+        response = self.llm.complete(prompt)
+        return response.text

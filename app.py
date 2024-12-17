@@ -8,7 +8,7 @@ import PyPDF2
 from main import (
     create_context,
     BgeSmallEmbedModel,
-    T5LLM,
+    T5LLM, OllamaLLM, GeminiLLM,
     network_participants,
     make_index,
     perform_query,
@@ -16,7 +16,7 @@ from main import (
 )
 
 embed_model = BgeSmallEmbedModel()
-llm = T5LLM()
+llm = OllamaLLM()  # T5LLM() #local setup
 global_context = create_context()
 
 
