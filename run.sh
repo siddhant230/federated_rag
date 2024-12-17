@@ -14,6 +14,12 @@ fi
 uv pip install --upgrade -r requirements.txt --quiet
 
 # setup ollama
+
+# for mac
+# wget https://ollama.com/download/Ollama-darwin.zip
+# then unzip
+# then copy the ollama.app to Applications folder
+
 # Check if Ollama is installed
 if command -v ollama &> /dev/null; then
   echo "Ollama is already installed."
