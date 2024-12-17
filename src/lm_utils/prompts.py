@@ -12,7 +12,9 @@ class InfoRetriever:
               Answer:
             """
     OLLAMA_QWEN_PROMPT = """
-              ONLY Answer from given context, dont mention anything out of the specified information, Be very specific and accurate.
+              You are an expert information finder
+              ONLY Answer from given context;Do not use prior knowledge or guess, dont mention anything out of the specified information, 
+              Be very concise, specific and accurate.
               CONTEXT : {}
               Question: {}
               Answer:

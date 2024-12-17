@@ -18,7 +18,15 @@ from llama_index.core.ingestion import IngestionPipeline
 from llama_index.core.node_parser import SentenceSplitter
 
 embed_model = BgeSmallEmbedModel()
-llm = OllamaLLM()  # T5LLM() #local setup
+# model_name = "qwen2.5:1.5b"
+model_name = "qwen2.5:0.5b"
+# model_name = "smollm2:135m"
+# model_name = "smollm2:360m"
+# model_name = "tinyllama"
+# model_name = "tinydolphin"
+# model_name = "granite3-moe"
+
+llm = OllamaLLM(model_name=model_name)  # T5LLM() #local setup
 
 global_context = create_context()
 pipeline = IngestionPipeline(

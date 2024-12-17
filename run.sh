@@ -24,8 +24,15 @@ else
   echo "Ollama installed successfully."
 fi
 
-# install ollama qwen2:1.5b
-ollama pull qwen2:1.5b # default model
+# install ollama models  (suggested options)
+# ollama pull qwen2:1.5b 
+ollama pull qwen2.5:1.5b # best larger model
+# ollama pull qwen2.5:0.5b  # default model
+# ollama pull smollm2:135m
+# ollama pull smollm2:360m
+# ollama pull tinyllama
+# ollama pull tinydolphin
+# ollama pull granite3-moe
 
 # run app using python from venv
 echo "Running fed_rag UI with $(python3 --version) at '$(which python3)'"
