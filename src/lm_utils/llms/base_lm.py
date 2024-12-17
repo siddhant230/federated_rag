@@ -86,7 +86,7 @@ class GeminiLLM(BaseLLModel):
     def generate_response(self, context, query):
         prompt = self.make_prompt(context, query)
         response = self.llm.generate_content(prompt)
-        return response
+        return response.text
 
 
 class OllamaLLM(BaseLLModel):

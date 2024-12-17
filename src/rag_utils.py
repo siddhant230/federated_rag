@@ -15,8 +15,8 @@ from src.custom_utils.encryptors import encrypt_and_store_embeddings
 
 
 def index_creator(file_path: str, target_path: str, context):
-    if os.path.exists(Path(target_path) / "vector_index"):
-        return []
+    # if os.path.exists(Path(target_path) / "vector_index"):
+    #     return []
     doc = SimpleDirectoryReader(input_files=[file_path]).load_data()
     index = VectorStoreIndex.from_documents(doc)
     target_path = Path(target_path) / "vector_index"

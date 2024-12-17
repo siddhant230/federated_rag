@@ -57,7 +57,6 @@ def process_message(message, history, model_choice, gemini_key=None, file=None):
     try:
         if model_choice == "Gemini" and not gemini_key:
             return "", history, session.session_name
-
         if model_choice == "HuggingFace":
             response_obj = perform_query(
                 query=message,
@@ -70,7 +69,16 @@ def process_message(message, history, model_choice, gemini_key=None, file=None):
             response = response_obj
         else:
             response = f"Processing with Gemini: {message}"
-
+            llm = GeminiLLM(api_key_path=gemini_key)
+            response_obj = perform_query(
+                query=message,
+                participants=session.participants,
+                datasite_path=session.datasite_path,
+                embed_model=embed_model,
+                llm=llm,
+                context=global_context
+            )
+            response = response_obj
         if file:
             try:
                 pdf_reader = PyPDF2.PdfReader(file.name)
@@ -152,7 +160,7 @@ def create_ui():
                     delete_btn = gr.Button("Delete Session")
 
                 with gr.Column(scale=3):
-                    chatbot = gr.Chatbot(height=400)
+                    chatbot = gr.Chatbot(height=700)
 
                     with gr.Row():
                         msg = gr.Textbox(

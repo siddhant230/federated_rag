@@ -84,6 +84,7 @@ def perform_query(query, participants: list[str], datasite_path: Path,
                                     embed_model=embed_model,
                                     llm=llm, context=context)
     print("Engine ready for querying..")
+    print("generating response!")
     response = midx_engine.generate(query)
     print("Query was executed succesfully.")
     return response

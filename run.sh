@@ -20,8 +20,8 @@ curl -fsSL https://ollama.com/install.sh | sh
 ollama pull qwen2:1.5b # default model
 
 # run app using python from venv
-echo "Running fed_rag with $(python3 --version) at '$(which python3)'"
-python3 main.py
+echo "Running fed_rag UI with $(python3 --version) at '$(which python3)'"
+python3 app.py
 
 # deactivate the virtual environment
 deactivate
