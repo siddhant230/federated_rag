@@ -114,7 +114,10 @@ SyftBox will automatically detect and install the new API during its execution c
 
 <img src="imgs/ui_ss.png">
 
-1. **Open in Browser**: Paste the above URL into your browser’s address bar to access the fed-rag interface.
+1. **Open in Browser**: Paste the below URL into your browser’s address bar to access the fed-rag interface.
+```
+http://127.0.0.1:7860
+```
 
 ### Creating the about_me.json
 
