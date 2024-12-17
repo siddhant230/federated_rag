@@ -33,6 +33,7 @@ class SessionState:
         self.gemini_key = None
         self.datasite_path = Path(os.path.expanduser(
             "~")) / ".federated_rag" / "data"
+        # self.datasite_path = Path("extra_test/scraping_test")
         self.participants = []
         self.session_name = "Untitled Session"
         self.query_count = 0
