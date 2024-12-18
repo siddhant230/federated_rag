@@ -91,7 +91,7 @@ class GeminiLLM(BaseLLModel):
 
 class OllamaLLM(BaseLLModel):
     def __init__(self,
-                 model_name='qwen2:1.5b', max_tokens=100):
+                 model_name='qwen2:1.5b', max_tokens=1024):
         super().__init__(model_name, None)
         self.max_tokens = max_tokens
         self.llm = Ollama(model=model_name,
