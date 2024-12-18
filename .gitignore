@@ -3,8 +3,3 @@ __pycache__
 config_key.txt
 venv
 test_run.sh
-
-*.log
-app_pid.txt
-
-.DS_Store
