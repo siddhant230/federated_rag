@@ -39,10 +39,10 @@ class SessionState:
         self.chat_history = []
         self.current_model = "HuggingFace"
         self.gemini_key = None
-        # self.datasite_path = Path(os.path.expanduser(
-        #     "~")) / ".federated_rag" / "data"
+        self.datasite_path = Path(os.path.expanduser(
+            "~")) / ".federated_rag" / "data"
         # for testing uncomment the line below
-        self.datasite_path = Path("extra_test/scraping_test")
+        # self.datasite_path = Path("extra_test/scraping_test")
         self.participants = []
         self.session_name = "Untitled Session"
         self.query_count = 0
