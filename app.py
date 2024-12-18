@@ -5,7 +5,7 @@ import psutil
 from datetime import datetime
 from pathlib import Path
 import PyPDF2
-from main import (
+from index_updater import (
     create_context,
     BgeSmallEmbedModel,
     T5LLM, OllamaLLM, GeminiLLM,
@@ -16,6 +16,7 @@ from main import (
 )
 from llama_index.core.ingestion import IngestionPipeline
 from llama_index.core.node_parser import SentenceSplitter
+from syftbox.lib import Client
 
 embed_model = BgeSmallEmbedModel()
 # model_name = "qwen2.5:1.5b"
@@ -33,14 +34,14 @@ pipeline = IngestionPipeline(
     transformations=[SentenceSplitter(
         chunk_size=50, chunk_overlap=10), embed_model.embedding_model])
 
+client = Client.load()
+
 
 class SessionState:
     def __init__(self):
-        self.chat_history = []
         self.current_model = "HuggingFace"
         self.gemini_key = None
-        self.datasite_path = Path(os.path.expanduser(
-            "~")) / ".federated_rag" / "data"
+        self.datasite_path = client.datasite_path
         # for testing uncomment the line below
         # self.datasite_path = Path("extra_test/scraping_test")
         self.participants = []
@@ -53,21 +54,34 @@ session = SessionState()
 
 def initialize_backend():
     try:
-        if not session.datasite_path.exists():
+        if "extra_test" in str(session.datasite_path):
             session.datasite_path.mkdir(parents=True, exist_ok=True)
+            session.participants = network_participants(session.datasite_path)
+            scrape_save_data(session.participants, session.datasite_path)
 
-        session.participants = network_participants(session.datasite_path)
-        scrape_save_data(session.participants, session.datasite_path)
+            active_participants = make_index(
+                session.participants,
+                session.datasite_path,
+                global_context,
+                pipeline=pipeline
+            )
+        else:
+            if not session.datasite_path.exists():
+                raise Exception("Datasite path does not exist. Cannot start session.")
 
-        active_participants = make_index(
-            session.participants,
-            session.datasite_path,
-            global_context,
-            pipeline=pipeline
-        )
+            session.participants = network_participants(client.datasite_path.parent)
+
+            scrape_save_data(session.participants, client.datasite_path.parent)
+
+            active_participants = make_index(
+                session.participants, 
+                client.datasite_path.parent,
+                context=global_context, 
+                pipeline=pipeline)
+    
         return active_participants
     except Exception as e:
-        return []
+        print(e.message)
 
 
 def process_message(message, history, model_choice, gemini_key=None, file=None):

@@ -15,34 +15,8 @@ from src.data_utils.resume_extractor import pdf_to_text
 from src.data_utils.github_extractor import get_github_user_info
 from src.utils import remove_emails_and_phone_numbers
 
-
-def should_run(output_file_path: str) -> bool:
-    INTERVAL = 30
-    if not os.path.exists(output_file_path):
-        return True
-
-    last_modified_time = datetime.fromtimestamp(
-        os.path.getmtime(output_file_path))
-    time_diff = datetime.now() - last_modified_time
-
-    if time_diff.total_seconds() >= INTERVAL:
-        return True
-    return False
-
-
-def save_run(output_folder: str, output_file_path: str):
-    os.makedirs(output_folder, exist_ok=True)
-    timestamp_data = {"last_run": datetime.now().isoformat()}
-
-    # Write timestamp to output file
-    with open(output_file_path, "w") as f:
-        json.dump(timestamp_data, f, indent=2)
-
-    # Ensure permission file exists
-    permission = SyftPermission.mine_with_public_read(email=client.email)
-    permission.ensure(output_folder)
-    print(f"Timestamp has been written to {output_file_path}")
-
+from llama_index.core.ingestion import IngestionPipeline
+from llama_index.core.node_parser import SentenceSplitter
 
 def make_index(participants: list[str], datasite_path: Path, context, pipeline):
     print("Computing indices")
@@ -201,65 +175,14 @@ def scrape_save_data(participants: list[str], datasite_path: Path):
             print(f"Overall data extraction failed for {participant}: {e}")
 
 
-# # syftbox relevant main
-# if __name__ == "__main__":
-
-#     # client and models loading
-#     client = Client.load()
-#     embed_model = BgeSmallEmbedModel()
-#     llm = T5LLM()
-
-#     global_context = create_context()
-
-#     # Setup folder paths
-#     output_folder = client.datasite_path / "api_data" / \
-#         "federated_rag" / "timestamp_recorder"
-#     input_query_folder = client.datasite_path / \
-#         "api_data" / "federated_rag" / "query_inbox"
-#     output_query_folder = client.datasite_path / \
-#         "api_data" / "federated_rag" / "query_outputs"
-
-#     for folder in [output_folder, input_query_folder, output_query_folder]:
-#         os.makedirs(folder, exist_ok=True)
-
-#     # Check if should run
-#     output_file_path = output_folder / "last_run.json"
-#     if not should_run(output_file_path):
-#         print("Skipping execution of federated_rag, not enough time has passed.")
-#         exit()
-#     save_run(output_folder, output_file_path)
-
-#     # Check which participants are active (have a public/bio.txt file)
-#     participants = network_participants(client.datasite_path.parent)
-
-#     scrape_save_data(participants, client.datasite_path.parent)
-
-#     active_participants = make_index(participants, client.datasite_path.parent,
-#                                      context=global_context)
-
-#     # Use their public data to answer the question I added
-#     queries = load_queries(input_query_folder)
-#     for filename, query in queries.items():
-#         response = perform_query(query, active_participants,
-#                                  client.datasite_path.parent,
-#                                  embed_model=embed_model, llm=llm,
-#                                  context=global_context)
-#         print(response)
-#         output_response_path = output_query_folder / \
-#             "{}_{}.txt".format(filename.split('.')[0], datetime.now().date())
-
-#         with open(output_response_path, "w") as file:
-#             output = "Query: {}\nResponse: {}\n".format(query, response)
-#             file.write(output)
-
-#         # Remove query input
-#         input_path = input_query_folder / filename
-#         input_path.unlink(missing_ok=True)
-
 # custom test
 if __name__ == "__main__":
     embed_model = BgeSmallEmbedModel()
     llm = OllamaLLM()  # T5LLM()
+    pipeline = IngestionPipeline(
+    transformations=[SentenceSplitter(
+        chunk_size=50, chunk_overlap=10), embed_model.embedding_model])
+    
     global_context = create_context()
     print(f"GLOBAL CONTEXT: {global_context}")
     datasite_path = "extra_test/scraping_test"
