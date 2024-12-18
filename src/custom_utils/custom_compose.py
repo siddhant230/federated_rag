@@ -84,6 +84,9 @@ class GraphComposer:
         for i in top_k_indices:
             collected_text_info.append(self.global_text_info[i])
             top_k_node_ids.append(self.global_node_info[i])
+            
+            current_global_node_info = self.global_node_info[i]
+            print("**** Hossam metadata ", current_global_node_info)
 
         return {
             "query": query,
