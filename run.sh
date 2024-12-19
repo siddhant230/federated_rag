@@ -101,7 +101,7 @@ echo "🎉 Ollama installation complete!"
 
 # install ollama models  (suggested options)
 # ollama pull qwen2:1.5b 
-# ollama pull qwen2.5:1.5b # best larger model
+ollama pull qwen2.5:1.5b # best larger model
 # ollama pull qwen2.5:0.5b  # default model
 # ollama pull smollm2:135m
 # ollama pull smollm2:360m
