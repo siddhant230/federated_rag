@@ -15,6 +15,7 @@ from src.custom_utils.encryptors import (encrypt_embeddings,
 import json
 import os
 
+
 class GraphComposer:
     def __init__(self, indexes_folder_paths: list,
                  embedding_model,
@@ -68,7 +69,7 @@ class GraphComposer:
             self.global_encrypted_embedding_matrix)
 
     def write_stats(self, fname):
-        current_pageviews = {"views" : 1}
+        current_pageviews = {"views": 1}
         if os.path.exists(fname):
             print("Page views are loaded and updated")
             in_file = open(fname, "r")
@@ -79,7 +80,7 @@ class GraphComposer:
         with open(fname, "w") as f:
             json.dump(current_pageviews, f)
         print("Page views have been written successfully")
-        
+
     def enc_retriever(self, query, top_k=3):
         # get query embeds
         top_k = min(top_k, len(self.global_encrypted_embedding_matrix))
@@ -97,25 +98,29 @@ class GraphComposer:
         # collect text-info
         collected_text_info = []
         top_k_node_ids = []
-        
-        # Current topK metadata        
-        top_k_metadata  = []
+
+        # Current topK metadata
+        top_k_metadata = []
         for i in top_k_indices:
-            collected_text_info.append(self.global_text_info[i])
+            identifier = self.global_node_info[i].metadata['file_path'].split(os.sep+"public")[
+                0].split(os.sep)[-1]
+            identifier = "Name of the person :" + identifier + "\n"
+            text_blob = identifier + "Info of the person:\n" + \
+                self.global_text_info[i].replace("\n\n\n", "")
+            collected_text_info.append(text_blob)
             top_k_node_ids.append(self.global_node_info[i])
-                        
+
             # Fetch the current meta data from the meta data inside the filapath
             current_metadata = self.global_node_info[i].metadata['file_path']
             top_k_metadata.append(current_metadata)
-                    
-            
-        # Set of topK files (unique per user) 
-        top_k_metadata     = list(set(top_k_metadata))
+
+        # Set of topK files (unique per user)
+        top_k_metadata = list(set(top_k_metadata))
         for metadata in top_k_metadata:
             stats_fpath = metadata.split("bio.txt")[0]
             stats_fpath = os.path.join(stats_fpath, "pageviews.json")
             self.write_stats(stats_fpath)
-        
+
         return {
             "query": query,
             "collected_text_info": collected_text_info,
@@ -141,7 +146,12 @@ class GraphComposer:
         collected_text_info = []
         top_k_node_ids = []
         for i in top_k_indices:
-            collected_text_info.append(self.global_text_info[i])
+            identifier = self.global_node_info[i].metadata['file_path'].split(os.sep+"public")[
+                0].split(os.sep)[-1]
+            identifier = "This text belong to :" + identifier + "\n"
+            text_blob = identifier + "Info of the person:\n" + \
+                self.global_text_info[i].replace("\n\n\n", "")
+            collected_text_info.append(text_blob)
             top_k_node_ids.append(self.global_node_info[i])
 
         return {
@@ -154,10 +164,9 @@ class GraphComposer:
             "top_k_node_ids": top_k_node_ids
         }
 
-    def generate(self, query, top_k=3):
+    def generate(self, query, top_k=3, sep="---------"):
         retrieved_out = self.enc_retriever(query, top_k)
         collected_text_info = retrieved_out["collected_text_info"]
-        context = "\n".join(collected_text_info)
-
+        context = f"\n{sep}\n".join(collected_text_info)
         response = self.llm.generate_response(context, query)
         return response
