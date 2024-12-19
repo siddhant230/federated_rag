@@ -19,8 +19,8 @@ from llama_index.core.node_parser import SentenceSplitter
 
 embed_model = BgeSmallEmbedModel()
 # model_name = "qwen2.5:1.5b"
-# model_name = "qwen2.5:0.5b"
-model_name = "qwen2.5:1.5b-instruct"
+model_name = "qwen2.5:0.5b"
+# model_name = "qwen2.5:1.5b-instruct"
 # model_name = "smollm2:135m"
 # model_name = "smollm2:360m"
 # model_name = "tinyllama"
@@ -32,7 +32,7 @@ llm = OllamaLLM(model_name=model_name)  # T5LLM() #local setup
 global_context = create_context()
 pipeline = IngestionPipeline(
     transformations=[SentenceSplitter(
-        chunk_size=512, chunk_overlap=20), embed_model.embedding_model])
+        chunk_size=30, chunk_overlap=10), embed_model.embedding_model])
 
 
 class SessionState:
