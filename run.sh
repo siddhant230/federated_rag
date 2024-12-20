@@ -1,6 +1,7 @@
 # !/bin/sh
 PID_FILE="app_pid.txt"
 LOG_DIRECTORY="logs"
+OSTYPE=$(uname -s)
 
 set -e
 
@@ -21,12 +22,13 @@ log_message() {
 
 # Function to check the operating system
 check_os() {
+    echo $OSTYPE
     case "$OSTYPE" in
         darwin*) 
             log_message "✅ macOS detected. Proceeding with installation..."
             OS="macos"
             ;;
-        linux*)
+        Linux*)
             log_message "✅ Linux detected. Proceeding with installation..."
             OS="linux"
             ;;
@@ -40,9 +42,9 @@ check_os() {
 # Function to check if Ollama is already installed
 check_ollama_installed() {
     if command -v ollama &>/dev/null; then
-        return 1
+        echo 1
     else
-        return 0
+        echo 0
     fi
 }
 
@@ -97,7 +99,7 @@ log_message "Starting Ollama installation..."
 check_os
 
 # Step 2: Perform installation based on OS
-installed_flag=check_ollama_installed;
+installed_flag=$(check_ollama_installed);
 
 if [[ "$OS" == "macos" && $installed_flag -eq 0 ]]; then
     check_homebrew
@@ -169,12 +171,12 @@ is_gradio_running() {
 start_gradio() {
     log_message "Starting Gradio application..."
     
-    nohup python3 app.py > "logs/app.log" 2>&1 &
+    setsid python app.py > "logs/app.log" 2>&1 &
     APP_PID=$!
     echo "$APP_PID" > "$PID_FILE"
     
-    for i in {1..10}; do
-        sleep 1
+    for i in {1..100}; do
+        sleep 10
         if curl -s http://localhost:7861 > /dev/null; then
             log_message "✅ Gradio app started successfully! (PID: $APP_PID) Go to: http://localhost:7861"
             return 0

@@ -1,0 +1,867 @@
+2024-12-20 at 17:55:23 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 17:55:23 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 17:55:27 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 17:55:27] Starting Ollama installation...
+[2024-12-20 17:55:27] ❌ Unsupported operating system: 
+> stderr:
+Using CPython 3.12.7
+Creating virtual environment at: .venv
+Activate with: source .venv/bin/activate
+
+2024-12-20 at 17:55:39 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 17:55:39 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 17:55:40 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 17:55:40] Starting Ollama installation...
+[2024-12-20 17:55:40] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 17:55:52 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 17:55:52 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 17:55:52 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 17:55:52] Starting Ollama installation...
+[2024-12-20 17:55:52] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 17:56:04 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 17:56:04 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 17:56:05 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 17:56:05] Starting Ollama installation...
+[2024-12-20 17:56:05] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 17:56:16 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 17:56:16 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 17:56:17 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 17:56:17] Starting Ollama installation...
+[2024-12-20 17:56:17] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 17:56:29 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 17:56:29 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 17:56:29 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 17:56:29] Starting Ollama installation...
+[2024-12-20 17:56:29] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 17:56:41 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 17:56:41 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 17:56:41 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 17:56:41] Starting Ollama installation...
+[2024-12-20 17:56:41] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 17:56:53 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 17:56:53 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 17:56:54 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 17:56:54] Starting Ollama installation...
+[2024-12-20 17:56:54] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 17:57:05 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 17:57:05 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 17:57:06 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 17:57:06] Starting Ollama installation...
+[2024-12-20 17:57:06] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 17:57:17 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 17:57:17 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 17:57:18 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 17:57:18] Starting Ollama installation...
+[2024-12-20 17:57:18] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 17:57:30 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 17:57:30 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 17:57:31 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 17:57:31] Starting Ollama installation...
+[2024-12-20 17:57:31] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 17:57:43 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 17:57:43 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 17:57:43 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 17:57:43] Starting Ollama installation...
+[2024-12-20 17:57:43] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 17:57:55 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 17:57:55 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 17:57:56 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 17:57:56] Starting Ollama installation...
+[2024-12-20 17:57:56] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 17:58:08 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 17:58:08 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 17:58:08 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 17:58:08] Starting Ollama installation...
+[2024-12-20 17:58:08] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 17:58:20 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 17:58:20 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 17:58:20 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 17:58:20] Starting Ollama installation...
+[2024-12-20 17:58:20] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 17:58:32 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 17:58:32 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 17:58:33 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 17:58:33] Starting Ollama installation...
+[2024-12-20 17:58:33] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 17:58:45 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 17:58:45 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 17:58:46 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 17:58:46] Starting Ollama installation...
+[2024-12-20 17:58:46] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 17:58:57 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 17:58:57 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 17:58:58 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 17:58:58] Starting Ollama installation...
+[2024-12-20 17:58:58] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 17:59:10 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 17:59:10 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 17:59:10 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 17:59:10] Starting Ollama installation...
+[2024-12-20 17:59:10] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 17:59:22 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 17:59:22 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 17:59:23 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 17:59:23] Starting Ollama installation...
+[2024-12-20 17:59:23] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 17:59:35 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 17:59:35 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 17:59:35 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 17:59:35] Starting Ollama installation...
+[2024-12-20 17:59:35] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 17:59:47 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 17:59:47 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 17:59:48 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 17:59:48] Starting Ollama installation...
+[2024-12-20 17:59:48] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 18:00:00 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:00:00 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:00:00 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:00:00] Starting Ollama installation...
+[2024-12-20 18:00:00] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 18:00:13 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:00:13 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:00:13 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:00:13] Starting Ollama installation...
+[2024-12-20 18:00:13] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 18:00:25 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:00:25 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:00:26 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:00:26] Starting Ollama installation...
+[2024-12-20 18:00:26] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 18:00:38 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:00:38 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:00:38 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:00:38] Starting Ollama installation...
+[2024-12-20 18:00:38] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 18:00:50 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:00:50 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:00:51 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:00:51] Starting Ollama installation...
+[2024-12-20 18:00:51] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 18:01:02 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:01:02 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:01:03 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:01:03] Starting Ollama installation...
+[2024-12-20 18:01:03] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 18:01:15 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:01:15 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:01:16 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:01:16] Starting Ollama installation...
+[2024-12-20 18:01:16] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 18:01:28 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:01:28 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:01:29 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:01:29] Starting Ollama installation...
+[2024-12-20 18:01:29] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 18:01:41 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:01:41 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:01:42 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:01:42] Starting Ollama installation...
+[2024-12-20 18:01:42] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 18:01:54 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:01:54 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:01:55 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:01:55] Starting Ollama installation...
+[2024-12-20 18:01:55] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 18:02:06 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:02:06 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:02:07 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:02:07] Starting Ollama installation...
+[2024-12-20 18:02:07] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 18:02:18 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:02:18 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:02:19 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:02:19] Starting Ollama installation...
+[2024-12-20 18:02:19] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 18:02:31 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:02:31 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:02:31 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:02:31] Starting Ollama installation...
+[2024-12-20 18:02:31] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 18:02:43 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:02:43 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:02:44 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:02:44] Starting Ollama installation...
+[2024-12-20 18:02:44] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 18:02:55 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:02:55 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:02:56 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:02:56] Starting Ollama installation...
+[2024-12-20 18:02:56] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 18:03:08 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:03:08 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:03:09 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:03:09] Starting Ollama installation...
+[2024-12-20 18:03:09] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 18:03:21 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:03:21 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:03:21 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:03:21] Starting Ollama installation...
+[2024-12-20 18:03:21] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 18:03:33 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:03:33 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:03:34 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:03:34] Starting Ollama installation...
+[2024-12-20 18:03:34] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 18:03:45 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:03:45 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:03:46 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:03:46] Starting Ollama installation...
+[2024-12-20 18:03:46] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 18:03:58 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:03:58 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:03:58 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:03:58] Starting Ollama installation...
+[2024-12-20 18:03:58] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 18:04:10 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:04:10 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:04:10 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:04:10] Starting Ollama installation...
+[2024-12-20 18:04:10] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 18:04:22 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:04:22 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:04:23 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:04:23] Starting Ollama installation...
+[2024-12-20 18:04:23] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 18:04:35 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:04:35 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:04:35 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:04:35] Starting Ollama installation...
+[2024-12-20 18:04:35] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 18:04:47 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:04:47 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:04:47 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:04:47] Starting Ollama installation...
+[2024-12-20 18:04:47] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 18:04:59 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:04:59 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:05:00 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:05:00] Starting Ollama installation...
+[2024-12-20 18:05:00] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 18:05:11 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:05:11 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:05:12 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:05:12] Starting Ollama installation...
+[2024-12-20 18:05:12] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 18:05:24 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:05:24 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:05:25 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:05:25] Starting Ollama installation...
+[2024-12-20 18:05:25] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 18:05:36 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:05:36 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:05:37 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:05:37] Starting Ollama installation...
+[2024-12-20 18:05:37] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 18:05:49 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:05:49 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:05:50 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:05:50] Starting Ollama installation...
+[2024-12-20 18:05:50] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 18:06:02 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:06:02 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:06:02 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:06:02] Starting Ollama installation...
+[2024-12-20 18:06:02] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 18:06:14 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:06:14 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:06:15 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:06:15] Starting Ollama installation...
+[2024-12-20 18:06:15] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 18:06:26 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:06:26 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:06:27 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:06:27] Starting Ollama installation...
+[2024-12-20 18:06:27] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 18:06:39 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:06:39 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:06:40 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:06:40] Starting Ollama installation...
+[2024-12-20 18:06:40] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 18:06:52 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:06:52 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:06:53 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:06:53] Starting Ollama installation...
+[2024-12-20 18:06:53] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 18:07:04 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:07:04 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:07:05 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:07:05] Starting Ollama installation...
+[2024-12-20 18:07:05] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 18:07:17 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:07:17 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:07:18 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:07:18] Starting Ollama installation...
+
+[2024-12-20 18:07:18] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 18:07:29 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:07:29 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:07:30 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:07:30] Starting Ollama installation...
+
+[2024-12-20 18:07:30] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 18:07:42 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:07:42 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:07:42 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:07:42] Starting Ollama installation...
+
+[2024-12-20 18:07:42] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 18:07:54 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:07:54 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:07:55 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:07:55] Starting Ollama installation...
+
+[2024-12-20 18:07:55] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 18:08:06 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:08:06 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:08:07 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:08:07] Starting Ollama installation...
+
+[2024-12-20 18:08:07] ❌ Unsupported operating system: 
+> stderr:
+
+2024-12-20 at 18:08:19 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:08:19 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:08:20 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:08:20] Starting Ollama installation...
+Linux
+[2024-12-20 18:08:20] ❌ Unsupported operating system: Linux
+> stderr:
+
+2024-12-20 at 18:08:32 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:08:32 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:08:32 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:08:32] Starting Ollama installation...
+Linux
+[2024-12-20 18:08:32] ❌ Unsupported operating system: Linux
+> stderr:
+
+2024-12-20 at 18:08:44 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:08:44 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:08:45 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:08:45] Starting Ollama installation...
+Linux
+[2024-12-20 18:08:45] ❌ Unsupported operating system: Linux
+> stderr:
+
+2024-12-20 at 18:08:56 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:08:56 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:08:57 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:08:57] Starting Ollama installation...
+Linux
+[2024-12-20 18:08:57] ❌ Unsupported operating system: Linux
+> stderr:
+
+2024-12-20 at 18:09:09 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:09:09 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:09:12 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:09:09] Starting Ollama installation...
+Linux
+[2024-12-20 18:09:09] ✅ Linux detected. Proceeding with installation...
+[2024-12-20 18:09:09] ✅ Ollama is already installed. Version:
+ollama version is 0.5.3
+[2024-12-20 18:09:09] Checking Ollama service status...
+[2024-12-20 18:09:09] Ollama is already running
+[2024-12-20 18:09:09] 🎉 Ollama installation complete!
+[2024-12-20 18:09:11] Running fed_rag with Python 3.12.7 at '/home/siddhant/SyftBox/apis/federated_rag/.venv/bin/python3'
+[2024-12-20 18:09:11] Starting Gradio application...
+[2024-12-20 18:09:12] ❌ Failed to start Gradio app. Check logs at 
+> stderr:
+/home/siddhant/SyftBox/apis/federated_rag/run.sh: 104: [[: not found
+/home/siddhant/SyftBox/apis/federated_rag/run.sh: 107: [[: not found
+[?25lpulling manifest ⠋ [?25h[?25l[2K[1Gpulling manifest ⠙ [?25h[?25l[2K[1Gpulling manifest ⠹ [?25h[?25l[2K[1Gpulling manifest ⠼ [?25h[?25l[2K[1Gpulling manifest ⠼ [?25h[?25l[2K[1Gpulling manifest ⠴ [?25h[?25l[2K[1Gpulling manifest ⠦ [?25h[?25l[2K[1Gpulling manifest ⠧ [?25h[?25l[2K[1Gpulling manifest ⠏ [?25h[?25l[2K[1Gpulling manifest ⠋ [?25h[?25l[2K[1Gpulling manifest ⠋ [?25h[?25l[2K[1Gpulling manifest ⠙ [?25h[?25l[2K[1Gpulling manifest ⠸ [?25h[?25l[2K[1Gpulling manifest 
+pulling c5396e06af29... 100% ▕████████████████▏ 397 MB                         
+pulling 66b9ea09bd5b... 100% ▕████████████████▏   68 B                         
+pulling eb4402837c78... 100% ▕████████████████▏ 1.5 KB                         
+pulling 832dd9e00a68... 100% ▕████████████████▏  11 KB                         
+pulling 005f95c74751... 100% ▕████████████████▏  490 B                         
+verifying sha256 digest 
+writing manifest 
+success [?25h
+
+2024-12-20 at 18:09:23 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:09:23 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:09:26 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:09:24] Starting Ollama installation...
+Linux
+[2024-12-20 18:09:24] ✅ Linux detected. Proceeding with installation...
+[2024-12-20 18:09:24] ✅ Ollama is already installed. Version:
+ollama version is 0.5.3
+[2024-12-20 18:09:24] Checking Ollama service status...
+[2024-12-20 18:09:24] Ollama is already running
+[2024-12-20 18:09:24] 🎉 Ollama installation complete!
+[2024-12-20 18:09:25] Running fed_rag with Python 3.12.7 at '/home/siddhant/SyftBox/apis/federated_rag/.venv/bin/python3'
+[2024-12-20 18:09:25] Starting Gradio application...
+[2024-12-20 18:09:26] ❌ Failed to start Gradio app. Check logs at 
+> stderr:
+/home/siddhant/SyftBox/apis/federated_rag/run.sh: 104: [[: not found
+/home/siddhant/SyftBox/apis/federated_rag/run.sh: 107: [[: not found
+[?25lpulling manifest ⠋ [?25h[?25l[2K[1Gpulling manifest ⠙ [?25h[?25l[2K[1Gpulling manifest ⠹ [?25h[?25l[2K[1Gpulling manifest ⠸ [?25h[?25l[2K[1Gpulling manifest ⠼ [?25h[?25l[2K[1Gpulling manifest ⠴ [?25h[?25l[2K[1Gpulling manifest ⠦ [?25h[?25l[2K[1Gpulling manifest ⠧ [?25h[?25l[2K[1Gpulling manifest ⠇ [?25h[?25l[2K[1Gpulling manifest 
+pulling c5396e06af29... 100% ▕████████████████▏ 397 MB                         
+pulling 66b9ea09bd5b... 100% ▕████████████████▏   68 B                         
+pulling eb4402837c78... 100% ▕████████████████▏ 1.5 KB                         
+pulling 832dd9e00a68... 100% ▕████████████████▏  11 KB                         
+pulling 005f95c74751... 100% ▕████████████████▏  490 B                         
+verifying sha256 digest 
+writing manifest 
+success [?25h
+
+2024-12-20 at 18:09:38 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:09:38 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:09:41 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:09:39] Starting Ollama installation...
+Linux
+[2024-12-20 18:09:39] ✅ Linux detected. Proceeding with installation...
+[2024-12-20 18:09:39] ✅ Ollama is already installed. Version:
+ollama version is 0.5.3
+[2024-12-20 18:09:39] Checking Ollama service status...
+[2024-12-20 18:09:39] Ollama is already running
+[2024-12-20 18:09:39] 🎉 Ollama installation complete!
+[2024-12-20 18:09:40] Running fed_rag with Python 3.12.7 at '/home/siddhant/SyftBox/apis/federated_rag/.venv/bin/python3'
+[2024-12-20 18:09:40] Starting Gradio application...
+[2024-12-20 18:09:41] ❌ Failed to start Gradio app. Check logs at 
+> stderr:
+/home/siddhant/SyftBox/apis/federated_rag/run.sh: 104: [[: not found
+/home/siddhant/SyftBox/apis/federated_rag/run.sh: 107: [[: not found
+[?25lpulling manifest ⠋ [?25h[?25l[2K[1Gpulling manifest ⠹ [?25h[?25l[2K[1Gpulling manifest ⠸ [?25h[?25l[2K[1Gpulling manifest ⠸ [?25h[?25l[2K[1Gpulling manifest ⠴ [?25h[?25l[2K[1Gpulling manifest ⠴ [?25h[?25l[2K[1Gpulling manifest ⠧ [?25h[?25l[2K[1Gpulling manifest ⠧ [?25h[?25l[2K[1Gpulling manifest ⠇ [?25h[?25l[2K[1Gpulling manifest 
+pulling c5396e06af29... 100% ▕████████████████▏ 397 MB                         
+pulling 66b9ea09bd5b... 100% ▕████████████████▏   68 B                         
+pulling eb4402837c78... 100% ▕████████████████▏ 1.5 KB                         
+pulling 832dd9e00a68... 100% ▕████████████████▏  11 KB                         
+pulling 005f95c74751... 100% ▕████████████████▏  490 B                         
+verifying sha256 digest 
+writing manifest 
+success [?25h
+
+2024-12-20 at 18:09:55 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:09:55 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:09:58 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:09:56] Starting Ollama installation...
+Linux
+[2024-12-20 18:09:56] ✅ Linux detected. Proceeding with installation...
+[2024-12-20 18:09:56] ✅ Ollama is already installed. Version:
+ollama version is 0.5.3
+[2024-12-20 18:09:56] Checking Ollama service status...
+[2024-12-20 18:09:56] Ollama is already running
+[2024-12-20 18:09:56] 🎉 Ollama installation complete!
+[2024-12-20 18:09:57] Running fed_rag with Python 3.12.7 at '/home/siddhant/SyftBox/apis/federated_rag/.venv/bin/python3'
+[2024-12-20 18:09:57] Starting Gradio application...
+[2024-12-20 18:09:58] ❌ Failed to start Gradio app. Check logs at 
+> stderr:
+/home/siddhant/SyftBox/apis/federated_rag/run.sh: 104: [[: not found
+/home/siddhant/SyftBox/apis/federated_rag/run.sh: 107: [[: not found
+[?25lpulling manifest ⠋ [?25h[?25l[2K[1Gpulling manifest ⠙ [?25h[?25l[2K[1Gpulling manifest ⠹ [?25h[?25l[2K[1Gpulling manifest ⠼ [?25h[?25l[2K[1Gpulling manifest ⠴ [?25h[?25l[2K[1Gpulling manifest ⠴ [?25h[?25l[2K[1Gpulling manifest ⠦ [?25h[?25l[2K[1Gpulling manifest ⠧ [?25h[?25l[2K[1Gpulling manifest ⠇ [?25h[?25l[2K[1Gpulling manifest 
+pulling c5396e06af29... 100% ▕████████████████▏ 397 MB                         
+pulling 66b9ea09bd5b... 100% ▕████████████████▏   68 B                         
+pulling eb4402837c78... 100% ▕████████████████▏ 1.5 KB                         
+pulling 832dd9e00a68... 100% ▕████████████████▏  11 KB                         
+pulling 005f95c74751... 100% ▕████████████████▏  490 B                         
+verifying sha256 digest 
+writing manifest 
+success [?25h
+
+2024-12-20 at 18:10:12 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:10:12 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:10:15 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:10:13] Starting Ollama installation...
+Linux
+[2024-12-20 18:10:13] ✅ Linux detected. Proceeding with installation...
+[2024-12-20 18:10:13] ✅ Ollama is already installed. Version:
+ollama version is 0.5.3
+[2024-12-20 18:10:13] Checking Ollama service status...
+[2024-12-20 18:10:13] Ollama is already running
+[2024-12-20 18:10:13] 🎉 Ollama installation complete!
+[2024-12-20 18:10:14] Running fed_rag with Python 3.12.7 at '/home/siddhant/SyftBox/apis/federated_rag/.venv/bin/python3'
+[2024-12-20 18:10:14] Starting Gradio application...
+[2024-12-20 18:10:15] ❌ Failed to start Gradio app. Check logs at 
+> stderr:
+/home/siddhant/SyftBox/apis/federated_rag/run.sh: 104: [[: not found
+/home/siddhant/SyftBox/apis/federated_rag/run.sh: 107: [[: not found
+[?25lpulling manifest ⠋ [?25h[?25l[2K[1Gpulling manifest ⠹ [?25h[?25l[2K[1Gpulling manifest ⠹ [?25h[?25l[2K[1Gpulling manifest ⠸ [?25h[?25l[2K[1Gpulling manifest ⠼ [?25h[?25l[2K[1Gpulling manifest ⠦ [?25h[?25l[2K[1Gpulling manifest ⠦ [?25h[?25l[2K[1Gpulling manifest ⠧ [?25h[?25l[2K[1Gpulling manifest ⠏ [?25h[?25l[2K[1Gpulling manifest ⠏ [?25h[?25l[2K[1Gpulling manifest 
+pulling c5396e06af29... 100% ▕████████████████▏ 397 MB                         
+pulling 66b9ea09bd5b... 100% ▕████████████████▏   68 B                         
+pulling eb4402837c78... 100% ▕████████████████▏ 1.5 KB                         
+pulling 832dd9e00a68... 100% ▕████████████████▏  11 KB                         
+pulling 005f95c74751... 100% ▕████████████████▏  490 B                         
+verifying sha256 digest 
+writing manifest 
+success [?25h
+
+2024-12-20 at 18:10:30 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:10:30 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:10:33 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:10:31] Starting Ollama installation...
+Linux
+[2024-12-20 18:10:31] ✅ Linux detected. Proceeding with installation...
+[2024-12-20 18:10:31] ✅ Ollama is already installed. Version:
+ollama version is 0.5.3
+[2024-12-20 18:10:31] Checking Ollama service status...
+[2024-12-20 18:10:31] Ollama is already running
+[2024-12-20 18:10:31] 🎉 Ollama installation complete!
+[2024-12-20 18:10:32] Running fed_rag with Python 3.12.7 at '/home/siddhant/SyftBox/apis/federated_rag/.venv/bin/python3'
+[2024-12-20 18:10:32] Starting Gradio application...
+[2024-12-20 18:10:33] ❌ Failed to start Gradio app. Check logs at 
+> stderr:
+/home/siddhant/SyftBox/apis/federated_rag/run.sh: 104: [[: not found
+/home/siddhant/SyftBox/apis/federated_rag/run.sh: 107: [[: not found
+[?25lpulling manifest ⠙ [?25h[?25l[2K[1Gpulling manifest ⠙ [?25h[?25l[2K[1Gpulling manifest ⠹ [?25h[?25l[2K[1Gpulling manifest ⠸ [?25h[?25l[2K[1Gpulling manifest ⠼ [?25h[?25l[2K[1Gpulling manifest ⠴ [?25h[?25l[2K[1Gpulling manifest ⠦ [?25h[?25l[2K[1Gpulling manifest ⠇ [?25h[?25l[2K[1Gpulling manifest ⠇ [?25h[?25l[2K[1Gpulling manifest 
+pulling c5396e06af29... 100% ▕████████████████▏ 397 MB                         
+pulling 66b9ea09bd5b... 100% ▕████████████████▏   68 B                         
+pulling eb4402837c78... 100% ▕████████████████▏ 1.5 KB                         
+pulling 832dd9e00a68... 100% ▕████████████████▏  11 KB                         
+pulling 005f95c74751... 100% ▕████████████████▏  490 B                         
+verifying sha256 digest 
+writing manifest 
+success [?25h
+
+2024-12-20 at 18:10:49 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:10:49 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:10:53 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:10:50] Starting Ollama installation...
+Linux
+[2024-12-20 18:10:50] ✅ Linux detected. Proceeding with installation...
+[2024-12-20 18:10:50] ✅ Ollama is already installed. Version:
+ollama version is 0.5.3
+[2024-12-20 18:10:50] Checking Ollama service status...
+[2024-12-20 18:10:50] Ollama is already running
+[2024-12-20 18:10:50] 🎉 Ollama installation complete!
+[2024-12-20 18:10:51] Running fed_rag with Python 3.12.7 at '/home/siddhant/SyftBox/apis/federated_rag/.venv/bin/python3'
+[2024-12-20 18:10:52] Starting Gradio application...
+[2024-12-20 18:10:53] ❌ Failed to start Gradio app. Check logs at 
+> stderr:
+/home/siddhant/SyftBox/apis/federated_rag/run.sh: 104: [[: not found
+/home/siddhant/SyftBox/apis/federated_rag/run.sh: 107: [[: not found
+[?25lpulling manifest ⠋ [?25h[?25l[2K[1Gpulling manifest ⠙ [?25h[?25l[2K[1Gpulling manifest ⠹ [?25h[?25l[2K[1Gpulling manifest ⠸ [?25h[?25l[2K[1Gpulling manifest ⠼ [?25h[?25l[2K[1Gpulling manifest ⠴ [?25h[?25l[2K[1Gpulling manifest ⠦ [?25h[?25l[2K[1Gpulling manifest ⠧ [?25h[?25l[2K[1Gpulling manifest ⠇ [?25h[?25l[2K[1Gpulling manifest 
+pulling c5396e06af29... 100% ▕████████████████▏ 397 MB                         
+pulling 66b9ea09bd5b... 100% ▕████████████████▏   68 B                         
+pulling eb4402837c78... 100% ▕████████████████▏ 1.5 KB                         
+pulling 832dd9e00a68... 100% ▕████████████████▏  11 KB                         
+pulling 005f95c74751... 100% ▕████████████████▏  490 B                         
+verifying sha256 digest 
+writing manifest 
+success [?25h
+
+2024-12-20 at 18:11:07 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:11:07 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:11:10 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:11:08] Starting Ollama installation...
+Linux
+[2024-12-20 18:11:08] ✅ Linux detected. Proceeding with installation...
+[2024-12-20 18:11:08] ✅ Ollama is already installed. Version:
+ollama version is 0.5.3
+[2024-12-20 18:11:08] Checking Ollama service status...
+[2024-12-20 18:11:08] Ollama is already running
+[2024-12-20 18:11:08] 🎉 Ollama installation complete!
+[2024-12-20 18:11:09] Running fed_rag with Python 3.12.7 at '/home/siddhant/SyftBox/apis/federated_rag/.venv/bin/python3'
+[2024-12-20 18:11:09] Starting Gradio application...
+[2024-12-20 18:11:10] ❌ Failed to start Gradio app. Check logs at 
+> stderr:
+/home/siddhant/SyftBox/apis/federated_rag/run.sh: 104: [[: not found
+/home/siddhant/SyftBox/apis/federated_rag/run.sh: 107: [[: not found
+[?25lpulling manifest ⠙ [?25h[?25l[2K[1Gpulling manifest ⠙ [?25h[?25l[2K[1Gpulling manifest ⠸ [?25h[?25l[2K[1Gpulling manifest ⠸ [?25h[?25l[2K[1Gpulling manifest ⠼ [?25h[?25l[2K[1Gpulling manifest ⠴ [?25h[?25l[2K[1Gpulling manifest ⠦ [?25h[?25l[2K[1Gpulling manifest ⠧ [?25h[?25l[2K[1Gpulling manifest ⠇ [?25h[?25l[2K[1Gpulling manifest 
+pulling c5396e06af29... 100% ▕████████████████▏ 397 MB                         
+pulling 66b9ea09bd5b... 100% ▕████████████████▏   68 B                         
+pulling eb4402837c78... 100% ▕████████████████▏ 1.5 KB                         
+pulling 832dd9e00a68... 100% ▕████████████████▏  11 KB                         
+pulling 005f95c74751... 100% ▕████████████████▏  490 B                         
+verifying sha256 digest 
+writing manifest 
+success [?25h
+
+2024-12-20 at 18:11:25 | INFO     | Working directory: /home/siddhant/SyftBox/apis/federated_rag
+2024-12-20 at 18:11:25 | INFO     | Command: ['sh', '/home/siddhant/SyftBox/apis/federated_rag/run.sh']
+2024-12-20 at 18:11:30 | ERROR    | process output
+> exit code: 1
+> stdout:
+[2024-12-20 18:11:27] Starting Ollama installation...
+Linux
+[2024-12-20 18:11:27] ✅ Linux detected. Proceeding with installation...
+[2024-12-20 18:11:27] ✅ Ollama is already installed. Version:
+ollama version is 0.5.3
+[2024-12-20 18:11:27] Checking Ollama service status...
+[2024-12-20 18:11:27] Ollama is already running
+[2024-12-20 18:11:27] 🎉 Ollama installation complete!
+[2024-12-20 18:11:28] Running fed_rag with Python 3.12.7 at '/home/siddhant/SyftBox/apis/federated_rag/.venv/bin/python3'
+[2024-12-20 18:11:28] Starting Gradio application...
+[2024-12-20 18:11:30] ❌ Failed to start Gradio app. Check logs at 
+> stderr:
+/home/siddhant/SyftBox/apis/federated_rag/run.sh: 104: [[: not found
+/home/siddhant/SyftBox/apis/federated_rag/run.sh: 107: [[: not found
+[?25lpulling manifest ⠋ [?25h[?25l[2K[1Gpulling manifest ⠙ [?25h[?25l[2K[1Gpulling manifest ⠹ [?25h[?25l[2K[1Gpulling manifest ⠸ [?25h[?25l[2K[1Gpulling manifest ⠼ [?25h[?25l[2K[1Gpulling manifest ⠴ [?25h[?25l[2K[1Gpulling manifest ⠦ [?25h[?25l[2K[1Gpulling manifest ⠧ [?25h[?25l[2K[1Gpulling manifest ⠇ [?25h[?25l[2K[1Gpulling manifest 
+pulling c5396e06af29... 100% ▕████████████████▏ 397 MB                         
+pulling 66b9ea09bd5b... 100% ▕████████████████▏   68 B                         
+pulling eb4402837c78... 100% ▕████████████████▏ 1.5 KB                         
+pulling 832dd9e00a68... 100% ▕████████████████▏  11 KB                         
+pulling 005f95c74751... 100% ▕████████████████▏  490 B                         
+verifying sha256 digest 
+writing manifest 
+success [?25h
+
