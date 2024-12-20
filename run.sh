@@ -24,7 +24,7 @@ log_message() {
 check_os() {
     echo $OSTYPE
     case "$OSTYPE" in
-        darwin*) 
+        Darwin*) 
             log_message "✅ macOS detected. Proceeding with installation..."
             OS="macos"
             ;;
