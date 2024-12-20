@@ -34,7 +34,7 @@ client = Client.load()
 global_context = create_context()
 pipeline = IngestionPipeline(
     transformations=[SentenceSplitter(
-        chunk_size=30, chunk_overlap=10), embed_model.embedding_model])
+        chunk_size=200, chunk_overlap=10), embed_model.embedding_model])
 
 class SessionState:
     def __init__(self):
