@@ -23,7 +23,7 @@ from llama_index.core.node_parser import SentenceSplitter
 
 
 def should_run(output_file_path: str) -> bool:
-    INTERVAL = 300 # 5 minutes
+    INTERVAL = 120 # 2 minutes
     if not os.path.exists(output_file_path):
         return True
 
@@ -118,10 +118,10 @@ def scrape_save_data(participants: list[str], datasite_path: Path):
         participant_path = Path(datasite_path)/participant/"public"
         participant_path.mkdir(parents=True, exist_ok=True)
         bio_path = participant_path/"bio.txt"
-        # if bio_path.exists():
-        #     print(
-        #         f"Skipping data extraction for {participant}: bio already exists")
-        #     continue
+        if bio_path.exists():
+            print(
+                f"Skipping data extraction for {participant}: bio already exists")
+            continue
         config_path = participant_path / "config.json"
         links = get_links_from_config(config_path)
         extracted_info = []
@@ -226,7 +226,6 @@ if __name__ == "__main__":
 
     # Check which participants are active (have a public/bio.txt file)
     participants = network_participants(client.datasite_path.parent)
-
     scrape_save_data(participants, client.datasite_path.parent)
 
     active_participants = make_index(
