@@ -310,7 +310,7 @@ def delete_session(session_name_display, session_history):
 def main():
     initialize_backend()
     demo = create_ui()
-    demo.launch(share=True)
+    demo.launch(share=True, server_port=7861, inbrowser=False, show_error=True)
 
 
 if __name__ == "__main__":
