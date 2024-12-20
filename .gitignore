@@ -3,3 +3,5 @@ __pycache__
 config_key.txt
 venv
 test_run.sh
+logs
+script_timestamps
