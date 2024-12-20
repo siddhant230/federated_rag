@@ -33,16 +33,16 @@ def index_creator(file_path: str, target_path: str, context, node_pipeline):
     return index
 
 
-def load_query_engine(participants, datasite_path,
+def load_query_engine(source,
                       embed_model,
                       llm,
                       context,
                       indexes=None):
+    print("Source:", source)
     index_path_list = []
-    for user_folder in participants:
-        index_path: Path = Path(datasite_path) / \
-            user_folder / "public" / "vector_index"
-        index_path_list.append(index_path)
+    for folder_path in source.iterdir():
+        if folder_path.is_dir() and "vector_index_" in folder_path.name:
+            index_path_list.append(folder_path)
 
     graph = GraphComposer(
         indexes_folder_paths=index_path_list,
