@@ -1,0 +1,391 @@
+/Users/flowstatic/SyftBox/apis/federated_rag/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+BAAI/bge-small-en-v1.5
+Config file not found at /Users/flowstatic/SyftBox/datasites/zarreen@openmined.org/public/config.json
+No information found for zarreen@openmined.org
+Config file not found at /Users/flowstatic/SyftBox/datasites/tom@myspace.com/public/config.json
+No information found for tom@myspace.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/yukselbestami@hotmail.com/public/config.json
+No information found for yukselbestami@hotmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/moisesweb@gmail.com/public/config.json
+No information found for moisesweb@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/boudissamehieddine@gmail.com/public/config.json
+No information found for boudissamehieddine@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/matejvedak@gmail.com/public/config.json
+No information found for matejvedak@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/smmehrab@protonmail.com/public/config.json
+No information found for smmehrab@protonmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/ionesiojr@gmail.com/public/config.json
+No information found for ionesiojr@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/abinvarghese90@gmail.com/public/config.json
+No information found for abinvarghese90@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/alejandrosanchzmedina@gmail.com/public/config.json
+No information found for alejandrosanchzmedina@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/andrew@openmined.org/public/config.json
+No information found for andrew@openmined.org
+Config file not found at /Users/flowstatic/SyftBox/datasites/santoshguntuka7@gmail.com/public/config.json
+No information found for santoshguntuka7@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/shailunatarajan@gmail.com/public/config.json
+No information found for shailunatarajan@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/tauquir@openmined.org/public/config.json
+No information found for tauquir@openmined.org
+Config file not found at /Users/flowstatic/SyftBox/datasites/aravindaraman04@gmail.com/public/config.json
+No information found for aravindaraman04@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/apsalshbk550@gmail.com/public/config.json
+No information found for apsalshbk550@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/uncle.decart@gmail.com/public/config.json
+No information found for uncle.decart@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/vsevolodmilohevskiy@gmail.com/public/config.json
+No information found for vsevolodmilohevskiy@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/sameer@test.org/public/config.json
+No information found for sameer@test.org
+Config file not found at /Users/flowstatic/SyftBox/datasites/giulia.gualtieri1@gmail.com/public/config.json
+No information found for giulia.gualtieri1@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/edwinsalguero2023@u.northwestern.edu/public/config.json
+No information found for edwinsalguero2023@u.northwestern.edu
+Config file not found at /Users/flowstatic/SyftBox/datasites/shubham@openmined.org/public/config.json
+No information found for shubham@openmined.org
+Config file not found at /Users/flowstatic/SyftBox/datasites/yash@openmined.org/public/config.json
+No information found for yash@openmined.org
+Config file not found at /Users/flowstatic/SyftBox/datasites/swatipnv.pics@gmail.com/public/config.json
+No information found for swatipnv.pics@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/manik.butex41@gmail.com/public/config.json
+No information found for manik.butex41@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/newabc@openmined.org/public/config.json
+No information found for newabc@openmined.org
+Config file not found at /Users/flowstatic/SyftBox/datasites/sumantsaxena23@gmail.com/public/config.json
+No information found for sumantsaxena23@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/jyothinookula@gmail.com/public/config.json
+No information found for jyothinookula@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/yasmeenel3sh@gmail.com/public/config.json
+No information found for yasmeenel3sh@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/praneetbomma@gmail.com/public/config.json
+No information found for praneetbomma@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/shahnewazk@gmail.com/public/config.json
+No information found for shahnewazk@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/stephen@openmined.org/public/config.json
+No information found for stephen@openmined.org
+Config file not found at /Users/flowstatic/SyftBox/datasites/kamathhrishi@hmail.com/public/config.json
+No information found for kamathhrishi@hmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/daniele.malpetti@supsi.ch/public/config.json
+No information found for daniele.malpetti@supsi.ch
+Config file not found at /Users/flowstatic/SyftBox/datasites/angelou.nick@gmail.com/public/config.json
+No information found for angelou.nick@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/rajaayyanar.led@gmail.com/public/config.json
+No information found for rajaayyanar.led@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/jlai@utexas.edu/public/config.json
+No information found for jlai@utexas.edu
+Config file not found at /Users/flowstatic/SyftBox/datasites/mnaveed@outlook.com/public/config.json
+No information found for mnaveed@outlook.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/supriti.vijay@gmail.com/public/config.json
+No information found for supriti.vijay@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/ashish.ash216@gmail.com/public/config.json
+No information found for ashish.ash216@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/thejitenpatel@gmail.com/public/config.json
+No information found for thejitenpatel@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/ihsank0000@protonmail.com/public/config.json
+No information found for ihsank0000@protonmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/curtis@openmined.org/public/config.json
+No information found for curtis@openmined.org
+Config file not found at /Users/flowstatic/SyftBox/datasites/rasswanth-test2@openmined.org/public/config.json
+No information found for rasswanth-test2@openmined.org
+Config file not found at /Users/flowstatic/SyftBox/datasites/inbox.ivn@gmail.com/public/config.json
+No information found for inbox.ivn@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/lucaslopesf2@gmail.com/public/config.json
+No information found for lucaslopesf2@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/lina.mntran@gmail.com/public/config.json
+No information found for lina.mntran@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/usevalad.milasheuski@polimi.it/public/config.json
+No information found for usevalad.milasheuski@polimi.it
+Config file not found at /Users/flowstatic/SyftBox/datasites/eelco_test_2@openmined.org/public/config.json
+No information found for eelco_test_2@openmined.org
+Config file not found at /Users/flowstatic/SyftBox/datasites/amtulifra12@gmail.com/public/config.json
+No information found for amtulifra12@gmail.com
+Skipping data extraction for hossam.amer12@gmail.com: bio already exists
+Config file not found at /Users/flowstatic/SyftBox/datasites/aziz@openmined.org/public/config.json
+No information found for aziz@openmined.org
+Config file not found at /Users/flowstatic/SyftBox/datasites/lukavaljin@gmail.com/public/config.json
+No information found for lukavaljin@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/koen6@openmined.org/public/config.json
+No information found for koen6@openmined.org
+Config file not found at /Users/flowstatic/SyftBox/datasites/c@openmined.org/public/config.json
+No information found for c@openmined.org
+Config file not found at /Users/flowstatic/SyftBox/datasites/test@openmined.org/public/config.json
+No information found for test@openmined.org
+Config file not found at /Users/flowstatic/SyftBox/datasites/teodor@openmined.org/public/config.json
+No information found for teodor@openmined.org
+Config file not found at /Users/flowstatic/SyftBox/datasites/maray97@hotmail.it/public/config.json
+No information found for maray97@hotmail.it
+Config file not found at /Users/flowstatic/SyftBox/datasites/kvgopalkrishnan1@gmail.com/public/config.json
+No information found for kvgopalkrishnan1@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/test@openm.org/public/config.json
+No information found for test@openm.org
+Config file not found at /Users/flowstatic/SyftBox/datasites/your@email.org/public/config.json
+No information found for your@email.org
+Config file not found at /Users/flowstatic/SyftBox/datasites/koen5@openmined.org/public/config.json
+No information found for koen5@openmined.org
+Config file not found at /Users/flowstatic/SyftBox/datasites/madhava@openmined.org/public/config.json
+No information found for madhava@openmined.org
+Config file not found at /Users/flowstatic/SyftBox/datasites/bennett@openmined.org/public/config.json
+No information found for bennett@openmined.org
+Config file not found at /Users/flowstatic/SyftBox/datasites/matyas@matyaskzs.com/public/config.json
+No information found for matyas@matyaskzs.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/Morganabuell98@gmail.com/public/config.json
+No information found for Morganabuell98@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/clarencelam@chiasm.ai/public/config.json
+No information found for clarencelam@chiasm.ai
+Config file not found at /Users/flowstatic/SyftBox/datasites/ant.ccbezerra@gmail.com/public/config.json
+No information found for ant.ccbezerra@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/shubhamgupta3121@gmail.com/public/config.json
+No information found for shubhamgupta3121@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/eug.reminders@gmail.com/public/config.json
+No information found for eug.reminders@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/mccorby@gmail.com/public/config.json
+No information found for mccorby@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/akshatagarwal2512@gmail.com/public/config.json
+No information found for akshatagarwal2512@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/sameer@openmined.org/public/config.json
+No information found for sameer@openmined.org
+Config file not found at /Users/flowstatic/SyftBox/datasites/sahanipradeep5529@gmail.com/public/config.json
+No information found for sahanipradeep5529@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/suchismitamaharana2000@gmail.com/public/config.json
+No information found for suchismitamaharana2000@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/eelco@openmined.org/public/config.json
+No information found for eelco@openmined.org
+Config file not found at /Users/flowstatic/SyftBox/datasites/gubertoli@gmail.com/public/config.json
+No information found for gubertoli@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/mail@eelc.ooo/public/config.json
+No information found for mail@eelc.ooo
+Config file not found at /Users/flowstatic/SyftBox/datasites/moises.web+drift1@gmail.com/public/config.json
+No information found for moises.web+drift1@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/skydowx@gmail.com/public/config.json
+No information found for skydowx@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/gks@peopleplus.ai/public/config.json
+No information found for gks@peopleplus.ai
+Config file not found at /Users/flowstatic/SyftBox/datasites/markjc98@gmail.com/public/config.json
+No information found for markjc98@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/eelco_test_1@openmined.org/public/config.json
+No information found for eelco_test_1@openmined.org
+Config file not found at /Users/flowstatic/SyftBox/datasites/khoa@openmined.org/public/config.json
+No information found for khoa@openmined.org
+Config file not found at /Users/flowstatic/SyftBox/datasites/dave@openmined.org/public/config.json
+No information found for dave@openmined.org
+Config file not found at /Users/flowstatic/SyftBox/datasites/irinam.bejan@gmail.com/public/config.json
+No information found for irinam.bejan@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/manoja328@gmail.com/public/config.json
+No information found for manoja328@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/dipeshmahato@outlook.com/public/config.json
+No information found for dipeshmahato@outlook.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/soni.tushar93@gmail.com/public/config.json
+No information found for soni.tushar93@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/a@openmined.org/public/config.json
+No information found for a@openmined.org
+Config file not found at /Users/flowstatic/SyftBox/datasites/viveksilimkhan@gmail.com/public/config.json
+No information found for viveksilimkhan@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/peter@openmined.org/public/config.json
+No information found for peter@openmined.org
+Config file not found at /Users/flowstatic/SyftBox/datasites/szilagyi.bence@proton.me/public/config.json
+No information found for szilagyi.bence@proton.me
+Config file not found at /Users/flowstatic/SyftBox/datasites/shankarjh@proton.me/public/config.json
+No information found for shankarjh@proton.me
+Config file not found at /Users/flowstatic/SyftBox/datasites/moises.web+syft1@gmail.com/public/config.json
+No information found for moises.web+syft1@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/shubhamtest@openmined.org/public/config.json
+No information found for shubhamtest@openmined.org
+Config file not found at /Users/flowstatic/SyftBox/datasites/aggregator@openmined.org/public/config.json
+No information found for aggregator@openmined.org
+Config file not found at /Users/flowstatic/SyftBox/datasites/rasswanth-test@openmined.org/public/config.json
+No information found for rasswanth-test@openmined.org
+Config file not found at /Users/flowstatic/SyftBox/datasites/elbertsmith@gmail.com/public/config.json
+No information found for elbertsmith@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/zzz@gmail.com/public/config.json
+No information found for zzz@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/perusha.moodley@gmail.com/public/config.json
+No information found for perusha.moodley@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/patadiyaashish12@gmail.com/public/config.json
+No information found for patadiyaashish12@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/duartevizela@gmail.com/public/config.json
+No information found for duartevizela@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/vrindakohliofficial@gmail.com/public/config.json
+No information found for vrindakohliofficial@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/mail@vinayh.com/public/config.json
+No information found for mail@vinayh.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/eliaskousk@gmail.com/public/config.json
+No information found for eliaskousk@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/tauquir+test@openmined.org/public/config.json
+No information found for tauquir+test@openmined.org
+Config file not found at /Users/flowstatic/SyftBox/datasites/amanda.tkacz@gmail.com/public/config.json
+No information found for amanda.tkacz@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/chunnushrivastava@gmail.com/public/config.json
+No information found for chunnushrivastava@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/b.lakshmisahithi18@gmail.com/public/config.json
+No information found for b.lakshmisahithi18@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/oyewoleemmanuel300@gmail.com/public/config.json
+No information found for oyewoleemmanuel300@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/luv@peopleplus.ai/public/config.json
+No information found for luv@peopleplus.ai
+Config file not found at /Users/flowstatic/SyftBox/datasites/liamtrask@gmail.com/public/config.json
+No information found for liamtrask@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/sachindn.207cs004@nitk.edu.in/public/config.json
+No information found for sachindn.207cs004@nitk.edu.in
+Config file not found at /Users/flowstatic/SyftBox/datasites/rasoul.am1376@gmail.com/public/config.json
+No information found for rasoul.am1376@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/viton@viton.io/public/config.json
+No information found for viton@viton.io
+Config file not found at /Users/flowstatic/SyftBox/datasites/first-test-client@openmined.org/public/config.json
+No information found for first-test-client@openmined.org
+Config file not found at /Users/flowstatic/SyftBox/datasites/teo_test@openmined.org/public/config.json
+No information found for teo_test@openmined.org
+Config file not found at /Users/flowstatic/SyftBox/datasites/nayakdebanuj4@gmail.com/public/config.json
+No information found for nayakdebanuj4@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/yuvraj.s.bhadauria@gmail.com/public/config.json
+No information found for yuvraj.s.bhadauria@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/shezan.huq@gmail.com/public/config.json
+No information found for shezan.huq@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/lacey@openmined.org/public/config.json
+No information found for lacey@openmined.org
+Config file not found at /Users/flowstatic/SyftBox/datasites/ionesio@openmined.org/public/config.json
+No information found for ionesio@openmined.org
+Config file not found at /Users/flowstatic/SyftBox/datasites/dhuffield@outlook.com/public/config.json
+No information found for dhuffield@outlook.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/abhimanyusinghlakhnot@gmail.com/public/config.json
+No information found for abhimanyusinghlakhnot@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/koen@openmined.org/public/config.json
+No information found for koen@openmined.org
+Skipping data extraction for irina@openmined.org: bio already exists
+Config file not found at /Users/flowstatic/SyftBox/datasites/reubenolumese@icloud.com/public/config.json
+No information found for reubenolumese@icloud.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/khoa3@openmined.org/public/config.json
+No information found for khoa3@openmined.org
+Config file not found at /Users/flowstatic/SyftBox/datasites/patrickhough@pm.me/public/config.json
+No information found for patrickhough@pm.me
+Config file not found at /Users/flowstatic/SyftBox/datasites/hasan.alikhattak@seecs.edu.pk/public/config.json
+No information found for hasan.alikhattak@seecs.edu.pk
+Config file not found at /Users/flowstatic/SyftBox/datasites/b@openmined.org/public/config.json
+No information found for b@openmined.org
+Config file not found at /Users/flowstatic/SyftBox/datasites/manojmalipeddi2001@gmail.com/public/config.json
+No information found for manojmalipeddi2001@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/matei@openmined.org/public/config.json
+No information found for matei@openmined.org
+Config file not found at /Users/flowstatic/SyftBox/datasites/manel.slokom@cwi.nl/public/config.json
+No information found for manel.slokom@cwi.nl
+Config file not found at /Users/flowstatic/SyftBox/datasites/s.nikhilkashyap@gmail.com/public/config.json
+No information found for s.nikhilkashyap@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/ashishlal.cal@gmail.com/public/config.json
+No information found for ashishlal.cal@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/dev.tresna@gmail.com/public/config.json
+No information found for dev.tresna@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/osam@openmined.org/public/config.json
+No information found for osam@openmined.org
+Config file not found at /Users/flowstatic/SyftBox/datasites/adyaagrawal04@gmail.com/public/config.json
+No information found for adyaagrawal04@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/leonardohdemelo@gmail.com/public/config.json
+No information found for leonardohdemelo@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/dhingra.atul92@gmail.com/public/config.json
+No information found for dhingra.atul92@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/aziz-test@openmined.org/public/config.json
+No information found for aziz-test@openmined.org
+Config file not found at /Users/flowstatic/SyftBox/datasites/ihsan0000@protonmail.com/public/config.json
+No information found for ihsan0000@protonmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/valerio@openmined.org/public/config.json
+No information found for valerio@openmined.org
+Config file not found at /Users/flowstatic/SyftBox/datasites/test@test.com/public/config.json
+No information found for test@test.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/elie.wanko@gmail.com/public/config.json
+No information found for elie.wanko@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/emmak2210@gmail.com/public/config.json
+No information found for emmak2210@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/matiasvc8@gmail.com/public/config.json
+No information found for matiasvc8@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/ajitkumar.pu@gmail.com/public/config.json
+No information found for ajitkumar.pu@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/g-politis@outlook.com/public/config.json
+No information found for g-politis@outlook.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/jamesbrown@gmail.com/public/config.json
+No information found for jamesbrown@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/subha@openmined.org/public/config.json
+No information found for subha@openmined.org
+Config file not found at /Users/flowstatic/SyftBox/datasites/mounika.pratapa29@gmail.com/public/config.json
+No information found for mounika.pratapa29@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/phamt2@berea.edu/public/config.json
+No information found for phamt2@berea.edu
+Config file not found at /Users/flowstatic/SyftBox/datasites/afsoun.owji@gmail.com/public/config.json
+No information found for afsoun.owji@gmail.com
+Skipping data extraction for parthanupamnagar@gmail.com: bio already exists
+Config file not found at /Users/flowstatic/SyftBox/datasites/htriedman@gmail.com/public/config.json
+No information found for htriedman@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/yukselbestami@gmail.com/public/config.json
+No information found for yukselbestami@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/balajivd01@gmail.com/public/config.json
+No information found for balajivd01@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/bhimrajyadav977@gmail.com/public/config.json
+No information found for bhimrajyadav977@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/marksua@gmail.com/public/config.json
+No information found for marksua@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/koen2@syftbox.dev/public/config.json
+No information found for koen2@syftbox.dev
+Config file not found at /Users/flowstatic/SyftBox/datasites/andrej@jovanovic.co.za/public/config.json
+No information found for andrej@jovanovic.co.za
+Config file not found at /Users/flowstatic/SyftBox/datasites/ronnie@openmined.org/public/config.json
+No information found for ronnie@openmined.org
+Config file not found at /Users/flowstatic/SyftBox/datasites/carlo12david@gmail.com/public/config.json
+No information found for carlo12david@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/lovells@un.org/public/config.json
+No information found for lovells@un.org
+Config file not found at /Users/flowstatic/SyftBox/datasites/mnikhi@yahoo.com/public/config.json
+No information found for mnikhi@yahoo.com
+Skipping data extraction for rsiddhant73@gmail.com: bio already exists
+Config file not found at /Users/flowstatic/SyftBox/datasites/cuoyemike@gmail.com/public/config.json
+No information found for cuoyemike@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/rasswanth@openmined.org/public/config.json
+No information found for rasswanth@openmined.org
+Config file not found at /Users/flowstatic/SyftBox/datasites/samkamauk@outlook.com/public/config.json
+No information found for samkamauk@outlook.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/jordanmadden285@gmail.com/public/config.json
+No information found for jordanmadden285@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/sagarkaushik98@gmail.com/public/config.json
+No information found for sagarkaushik98@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/elmerfudd@gmail.com/public/config.json
+No information found for elmerfudd@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/brendan@openmined.org/public/config.json
+No information found for brendan@openmined.org
+Config file not found at /Users/flowstatic/SyftBox/datasites/info@openmined.org/public/config.json
+No information found for info@openmined.org
+Config file not found at /Users/flowstatic/SyftBox/datasites/maurya.yash152@gmail.com/public/config.json
+No information found for maurya.yash152@gmail.com
+Config file not found at /Users/flowstatic/SyftBox/datasites/moises.web+thrift1@gmail.com/public/config.json
+No information found for moises.web+thrift1@gmail.com
+Computing indices
+Metadata length (27) is close to chunk size (30). Resulting chunks are less than 50 tokens. Consider increasing the chunk size or decreasing the size of your metadata to avoid this.
+Index created for /Users/flowstatic/SyftBox/datasites/hossam.amer12@gmail.com/public/bio.txt
+Encrypted embeddings have been saved to /Users/flowstatic/SyftBox/datasites/hossam.amer12@gmail.com/public/vector_index/encrypted__vector_store.json
+Embeddings encrypted and saved!
+Metadata length (27) is close to chunk size (30). Resulting chunks are less than 50 tokens. Consider increasing the chunk size or decreasing the size of your metadata to avoid this.
+Index created for /Users/flowstatic/SyftBox/datasites/irina@openmined.org/public/bio.txt
+Encrypted embeddings have been saved to /Users/flowstatic/SyftBox/datasites/irina@openmined.org/public/vector_index/encrypted__vector_store.json
+Embeddings encrypted and saved!
+Metadata length (28) is close to chunk size (30). Resulting chunks are less than 50 tokens. Consider increasing the chunk size or decreasing the size of your metadata to avoid this.
+Index created for /Users/flowstatic/SyftBox/datasites/parthanupamnagar@gmail.com/public/bio.txt
+Encrypted embeddings have been saved to /Users/flowstatic/SyftBox/datasites/parthanupamnagar@gmail.com/public/vector_index/encrypted__vector_store.json
+Embeddings encrypted and saved!
+Metadata length (26) is close to chunk size (30). Resulting chunks are less than 50 tokens. Consider increasing the chunk size or decreasing the size of your metadata to avoid this.
+Index created for /Users/flowstatic/SyftBox/datasites/rsiddhant73@gmail.com/public/bio.txt
+Encrypted embeddings have been saved to /Users/flowstatic/SyftBox/datasites/rsiddhant73@gmail.com/public/vector_index/encrypted__vector_store.json
+Embeddings encrypted and saved!
+Found 4 indices and the active participants are: ['hossam.amer12@gmail.com', 'irina@openmined.org', 'parthanupamnagar@gmail.com', 'rsiddhant73@gmail.com']
+Active participants: ['hossam.amer12@gmail.com', 'irina@openmined.org', 'parthanupamnagar@gmail.com', 'rsiddhant73@gmail.com']
+Storing indices locally..
+Index copied for hossam.amer12@gmail.com at /Users/flowstatic/.federated_rag/data/vector_index_hossam.amer12@gmail.com
+Index copied for irina@openmined.org at /Users/flowstatic/.federated_rag/data/vector_index_irina@openmined.org
+Index copied for parthanupamnagar@gmail.com at /Users/flowstatic/.federated_rag/data/vector_index_parthanupamnagar@gmail.com
+Index copied for rsiddhant73@gmail.com at /Users/flowstatic/.federated_rag/data/vector_index_rsiddhant73@gmail.com
+Traceback (most recent call last):
+  File "/Users/flowstatic/SyftBox/apis/federated_rag/app.py", line 338, in <module>
+    main()
+  File "/Users/flowstatic/SyftBox/apis/federated_rag/app.py", line 334, in main
+    demo.launch(server_port=7861, show_error=True)
+  File "/Users/flowstatic/SyftBox/apis/federated_rag/.venv/lib/python3.9/site-packages/gradio/blocks.py", line 2371, in launch
+    ) = http_server.start_server(
+  File "/Users/flowstatic/SyftBox/apis/federated_rag/.venv/lib/python3.9/site-packages/gradio/http_server.py", line 154, in start_server
+    raise OSError(
+OSError: Cannot find empty port in range: 7861-7861. You can specify a different port by setting the GRADIO_SERVER_PORT environment variable or passing the `server_port` parameter to `launch()`.

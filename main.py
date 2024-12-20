@@ -201,75 +201,7 @@ def scrape_save_data(participants: list[str], datasite_path: Path):
             print(f"Overall data extraction failed for {participant}: {e}")
 
 
-# # syftbox relevant main
-# if __name__ == "__main__":
-
-#     # client and models loading
-#     client = Client.load()
-#     embed_model = BgeSmallEmbedModel()
-#     llm = T5LLM()
-
-#     global_context = create_context()
-
-#     # Setup folder paths
-#     output_folder = client.datasite_path / "api_data" / \
-#         "federated_rag" / "timestamp_recorder"
-#     input_query_folder = client.datasite_path / \
-#         "api_data" / "federated_rag" / "query_inbox"
-#     output_query_folder = client.datasite_path / \
-#         "api_data" / "federated_rag" / "query_outputs"
-
-#     for folder in [output_folder, input_query_folder, output_query_folder]:
-#         os.makedirs(folder, exist_ok=True)
-
-#     # Check if should run
-#     output_file_path = output_folder / "last_run.json"
-#     if not should_run(output_file_path):
-#         print("Skipping execution of federated_rag, not enough time has passed.")
-#         exit()
-#     save_run(output_folder, output_file_path)
-
-#     # Check which participants are active (have a public/bio.txt file)
-#     participants = network_participants(client.datasite_path.parent)
-
-#     scrape_save_data(participants, client.datasite_path.parent)
-
-#     active_participants = make_index(participants, client.datasite_path.parent,
-#                                      context=global_context)
-
-#     # Use their public data to answer the question I added
-#     queries = load_queries(input_query_folder)
-#     for filename, query in queries.items():
-#         response = perform_query(query, active_participants,
-#                                  client.datasite_path.parent,
-#                                  embed_model=embed_model, llm=llm,
-#                                  context=global_context)
-#         print(response)
-#         output_response_path = output_query_folder / \
-#             "{}_{}.txt".format(filename.split('.')[0], datetime.now().date())
-
-#         with open(output_response_path, "w") as file:
-#             output = "Query: {}\nResponse: {}\n".format(query, response)
-#             file.write(output)
-
-#         # Remove query input
-#         input_path = input_query_folder / filename
-#         input_path.unlink(missing_ok=True)
-
-# custom test
 if __name__ == "__main__":
-    embed_model = BgeSmallEmbedModel()
-    llm = OllamaLLM()  # T5LLM()
-    global_context = create_context()
-    print(f"GLOBAL CONTEXT: {global_context}")
-    datasite_path = "extra_test/scraping_test"
-    participants = list(os.listdir(datasite_path))
-    scrape_save_data(participants, datasite_path)
-    make_index(participants, datasite_path, global_context)
-    resp = perform_query(query="what is the person's job role?",
-                         participants=participants,
-                         datasite_path=datasite_path,
-                         embed_model=embed_model,
-                         llm=llm,
-                         context=global_context)
-    print(resp)
+    print("Skip running main..")
+    print("To run the local Gradio app, run python3 app.py")
+    print("To update the indices, run python3 index_updater.py")
