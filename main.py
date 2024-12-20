@@ -78,9 +78,9 @@ def load_queries(input_query_folder: str):
     return queries
 
 
-def perform_query(query, participants: list[str], datasite_path: Path,
+def perform_query(query, source,
                   embed_model, llm, context):
-    midx_engine = load_query_engine(participants, datasite_path,
+    midx_engine = load_query_engine(source,
                                     embed_model=embed_model,
                                     llm=llm, context=context)
     print("Engine ready for querying..")

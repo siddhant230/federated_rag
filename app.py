@@ -16,6 +16,8 @@ from main import (
 )
 from llama_index.core.ingestion import IngestionPipeline
 from llama_index.core.node_parser import SentenceSplitter
+from syftbox.lib import Client, SyftPermission
+import shutil
 
 embed_model = BgeSmallEmbedModel()
 # model_name = "qwen2.5:1.5b"
@@ -28,12 +30,11 @@ model_name = "qwen2.5:0.5b"
 # model_name = "granite3-moe"
 
 llm = OllamaLLM(model_name=model_name)  # T5LLM() #local setup
-
+client = Client.load()
 global_context = create_context()
 pipeline = IngestionPipeline(
     transformations=[SentenceSplitter(
         chunk_size=30, chunk_overlap=10), embed_model.embedding_model])
-
 
 class SessionState:
     def __init__(self):
@@ -48,27 +49,45 @@ class SessionState:
         self.session_name = "Untitled Session"
         self.query_count = 0
 
-
 session = SessionState()
 
+def store_indices_locally(participants, datasite_path, target):
+    index_path_dict = {}
+    for user_folder in participants:
+        index_path: Path = Path(datasite_path) / \
+            user_folder / "public" / "vector_index"
+        index_path_dict[user_folder] = index_path
 
+    for user, index_path in index_path_dict.items():
+        path = target / f"vector_index_{user}"
+        shutil.copytree(index_path, path, dirs_exist_ok=True)
+        print(f"Index copied for {user} at {path}")
+              
 def initialize_backend():
     try:
         if not session.datasite_path.exists():
             session.datasite_path.mkdir(parents=True, exist_ok=True)
 
-        session.participants = network_participants(session.datasite_path)
-        scrape_save_data(session.participants, session.datasite_path)
+        session.participants = network_participants(client.datasite_path.parent) # SyftBox/datasites
+        scrape_save_data(session.participants, client.datasite_path.parent) # SyftBox/datasites
 
         active_participants = make_index(
             session.participants,
-            session.datasite_path,
+            client.datasite_path.parent,
             global_context,
             pipeline=pipeline
         )
-        return active_participants
+        
+        print(f"Active participants: {active_participants}")
+        print(f"Storing indices locally..")
+
+        store_indices_locally(
+            participants=active_participants,
+            datasite_path=client.datasite_path.parent,
+            target=session.datasite_path,
+        )
     except Exception as e:
-        return []
+        print("Error occurred during initialization:", str(e))
 
 
 def process_message(message, history, model_choice, gemini_key=None, file=None):
@@ -76,22 +95,23 @@ def process_message(message, history, model_choice, gemini_key=None, file=None):
         if model_choice == "Gemini" and not gemini_key:
             return "", history, session.session_name
         if model_choice == "HuggingFace":
-            response_obj = perform_query(
-                query=message,
-                participants=session.participants,
-                datasite_path=session.datasite_path,
-                embed_model=embed_model,
-                llm=llm,
-                context=global_context
-            )
-            response = response_obj
+            try:
+                response_obj = perform_query(
+                    query=message,
+                    source=session.datasite_path, # ~/ ".federated_rag" / "data"
+                    embed_model=embed_model,
+                    llm=llm,
+                    context=global_context
+                )
+                response = response_obj
+            except Exception as e:
+                print(f"Error processing query: {str(e)}")
         else:
             response = f"Processing with Gemini: {message}"
             gemini_llm = GeminiLLM(api_key_path=gemini_key)
             response_obj = perform_query(
                 query=message,
-                participants=session.participants,
-                datasite_path=session.datasite_path,
+                source=session.datasite_path, # ~/ ".federated_rag" / "data"
                 embed_model=embed_model,
                 llm=gemini_llm,
                 context=global_context
@@ -310,7 +330,7 @@ def delete_session(session_name_display, session_history):
 def main():
     initialize_backend()
     demo = create_ui()
-    demo.launch(share=True, server_port=7861, inbrowser=False, show_error=True)
+    demo.launch(server_port=7861, show_error=True)
 
 
 if __name__ == "__main__":

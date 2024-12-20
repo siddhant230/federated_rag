@@ -169,7 +169,7 @@ is_gradio_running() {
 start_gradio() {
     log_message "Starting Gradio application..."
     
-    setsid python3 app.py > "logs/app.log" 2>&1 &
+    nohup python3 app.py > "logs/app.log" 2>&1 &
     APP_PID=$!
     echo "$APP_PID" > "$PID_FILE"
     
