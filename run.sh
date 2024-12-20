@@ -199,7 +199,7 @@ else
 fi
 
 # Run the index updater every 5 mins
-python3 index_updater.py
+python3 index_updater.py > "logs/index_updater.log" 2>&1 &
 
 # deactivate the virtual environment
 deactivate
