@@ -133,7 +133,7 @@ http://127.0.0.1:7860
    ```
    {
     "info" : "Hi, this is xyz. I work on abcd and my cat name is Mr.CAT",
-    "links":[https://github.com/xyz,
+    "links":[https://github.com/xyz, <path to google scholar>, <path to portfolio website>
             <path_to_twitter>,
             <personal website>...],
     "resume_path":"my_resume.pdf"

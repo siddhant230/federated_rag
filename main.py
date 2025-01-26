@@ -13,6 +13,8 @@ from src.rag_utils import index_creator, load_query_engine
 from src.data_utils.linkedin_extractor import LinkedinScraper
 from src.data_utils.resume_extractor import pdf_to_text
 from src.data_utils.github_extractor import get_github_user_info
+from src.data_utils.google_scholar_extractor import google_scholar_extractor_util
+from src.data_utils.portfolio_extractor import extract_portfolio_data
 from src.utils import remove_emails_and_phone_numbers
 
 
@@ -109,11 +111,14 @@ def get_links_from_config(config_path: Path):
         'github': None,
         'google_scholar': None,
         'twitter': None,
-        'resume_path': None
+        'resume_path': None,
+        'misc': None
     }
 
     linkedin_pattern = r'https?://(?:www\.)?linkedin\.com/in/[^\s\'"<>]+'
     github_pattern = r'https?://(?:www\.)?github\.com/[^\s\'"<>]+'
+    gs_pattern = r"https://scholar.google/.com/citations?user=[a-zA-Z0-9_-]+"
+    misc_website = r"(https?://)?(www.)?[a-zA-Z0-9-]+.[a-zA-Z]{2,}(.[a-zA-Z]{2,})?(/.*)?"
 
     try:
         with open(config_path, 'r', encoding='utf-8') as file:
@@ -127,6 +132,10 @@ def get_links_from_config(config_path: Path):
                 links['linkedin'] = url
             elif re.match(github_pattern, url, re.IGNORECASE):
                 links['github'] = url
+            elif re.match(gs_pattern, url, re.IGNORECASE):
+                links['google_scholar'] = url
+            elif re.match(misc_website, url, re.IGNORECASE):
+                links['misc'] = url
 
         links['resume_path'] = content.get('resume_path', None)
     except FileNotFoundError:
@@ -177,6 +186,32 @@ def scrape_save_data(participants: list[str], datasite_path: Path):
 
                 except Exception as e:
                     print(f"Github scraping failed for {participant}: {e}")
+
+            # TODO : add google scholar and portfolio extractor
+
+            if links['google_scholar']:
+                print(f"Google scholar url: {links['google_scholar']}")
+                try:
+                    gs_data = google_scholar_extractor_util(
+                        links["google_scholar"])
+
+                    extracted_info.append('# google_scholar: \n')
+                    extracted_info.append(gs_data)
+                except Exception as e:
+                    print(
+                        f"Google scholar extraction failed for {participant}: {e}")
+
+            if links['portfolio']:
+                print(f"portfolio url: {links['misc']}")
+                try:
+                    portfolio_data = extract_portfolio_data(
+                        links["misc"])
+
+                    extracted_info.append('# portfolio: \n')
+                    extracted_info.append(portfolio_data)
+                except Exception as e:
+                    print(
+                        f"portfolio extraction failed for {participant}: {e}")
 
             if links['resume_path']:
                 print(f"RESUME PATH: {links['resume_path']}")
