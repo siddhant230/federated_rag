@@ -6,9 +6,11 @@ from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 
 load_dotenv()
-GITHUB_TOKEN = os.getenv("GITHUB_TOKEN") # add github token for increased rate limit
+# add github token for increased rate limit
+GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 
-def md_to_text(md:str)->str:
+
+def md_to_text(md: str) -> str:
     """
     convert markdown into html rendered text
     """
@@ -16,7 +18,8 @@ def md_to_text(md:str)->str:
     soup = BeautifulSoup(html, features='html.parser')
     return soup.get_text()
 
-def get_github_user_info(profile_url):
+
+def get_github_user_info(profile_url, word_limit=100):
     """
     given a github profile URL, fetch user details + user readme and save to '../github_data/username.txt'
     """
@@ -31,48 +34,58 @@ def get_github_user_info(profile_url):
 
     user_response = requests.get(user_api_url, headers=headers)
     if user_response.status_code != 200:
-        print(f"Error fetching user info: {user_response.json().get('message', 'Unknown error')}")
+        print(
+            f"Error fetching user info: {user_response.json().get('message', 'Unknown error')}")
         return
 
     user_info = user_response.json()
 
-    #pagination logic
+    # pagination logic
     all_repos = []
     page = 1
     while True:
-        response = requests.get(repos_api_url, headers=headers, params = {"page": page, "per_page": 100})
+        response = requests.get(repos_api_url, headers=headers, params={
+                                "page": page, "per_page": 100})
         if user_response.status_code != 200:
-            print(f"Error fetching user info: {user_response.json().get('message', 'Unknown error')}")
+            print(
+                f"Error fetching user info: {user_response.json().get('message', 'Unknown error')}")
             return
         repos = response.json()
         if not repos:
             break
 
         all_repos.extend(repos)
-        page +=1
+        page += 1
 
     readme_response = None
 
     # check for usr readme in main/master branches of all repos
+    available_repos_data = []
+    person_info = []
     for repo in all_repos:
-        if repo.get('name').lower() == username.lower():
-            branches = ['main', 'master']
-            readme_found = False
-            for branch in branches:
-                readme_url = f"https://raw.githubusercontent.com/{username}/{repo['name']}/{branch}/README.md"
-                readme_response = requests.get(readme_url)
-                if readme_response.status_code == 200:
-                    readme_found = True
-                    break
-            if not readme_found:
-                break
 
-    if not (readme_response or readme_response.status_code==200):
-        return None
+        branches = ['main', 'master']
+        readme_found = False
+        for branch in branches:
+            readme_url = f"https://raw.githubusercontent.com/{username}/{repo['name']}/{branch}/README.md"
+            readme_response = requests.get(readme_url)
+            if readme_response.status_code != 200:
+                continue
 
-    return md_to_text(readme_response.text)
-        
-    
+            if repo.get('name').lower() == username.lower():
+                person_info.append(readme_response.text)
+            else:
+                readme_response = " ".join(
+                    readme_response.text.split(" ")[:word_limit])
+                readme_response = f"Repo name:{repo}\nRepo description{readme_response}"
+                available_repos_data.append(readme_response)
+
+    if readme_response is not None:
+        person_info = md_to_text("\n".join(person_info))
+        available_repos_data = md_to_text("\n".join(available_repos_data))
+        return "Information about person : " + person_info + "\n" + "His projects" + available_repos_data
+
+    return f"No github data found for {profile_url}"
 
     # os.makedirs('./github_data', exist_ok=True)
 
@@ -82,3 +95,9 @@ def get_github_user_info(profile_url):
     #     if readme_response and readme_response.status_code == 200:
     #         f.write(md_to_text(readme_response.text))
     #     f.close()
+
+
+# if __name__ == "__main__":
+#     url = "https://github.com/siddhant230"
+#     data = get_github_user_info(profile_url=url)
+#     print(data)

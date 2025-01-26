@@ -71,3 +71,12 @@ class LinkedinScraper:
                     profile_data), file, ensure_ascii=False)
         except Exception as e:
             print("error while saving", e)
+
+
+if __name__ == '__main__':
+    linkedin_scraper = LinkedinScraper(user_email='', pwd='')
+    profile_username = linkedin_scraper.get_profile_usr(
+        "https://www.linkedin.com/in/siddhant-rai/")
+    profile_data = linkedin_scraper.scrape_profile(
+        profile_username)
+    print(profile_data)
