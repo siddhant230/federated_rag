@@ -21,13 +21,14 @@ import shutil
 
 embed_model = BgeSmallEmbedModel()
 # model_name = "qwen2.5:1.5b"
-model_name = "qwen2.5:0.5b"
+# model_name = "qwen2.5:0.5b"
 # model_name = "qwen2.5:1.5b-instruct"
 # model_name = "smollm2:135m"
 # model_name = "smollm2:360m"
 # model_name = "tinyllama"
 # model_name = "tinydolphin"
 # model_name = "granite3-moe"
+model_name = "deepseek-r1:1.5b"
 
 llm = OllamaLLM(model_name=model_name)  # T5LLM() #local setup
 client = Client.load()
@@ -35,6 +36,7 @@ global_context = create_context()
 pipeline = IngestionPipeline(
     transformations=[SentenceSplitter(
         chunk_size=200, chunk_overlap=10), embed_model.embedding_model])
+
 
 class SessionState:
     def __init__(self):
@@ -49,7 +51,9 @@ class SessionState:
         self.session_name = "Untitled Session"
         self.query_count = 0
 
+
 session = SessionState()
+
 
 def store_indices_locally(participants, datasite_path, target):
     index_path_dict = {}
@@ -62,14 +66,17 @@ def store_indices_locally(participants, datasite_path, target):
         path = target / f"vector_index_{user}"
         shutil.copytree(index_path, path, dirs_exist_ok=True)
         print(f"Index copied for {user} at {path}")
-              
+
+
 def initialize_backend():
     try:
         if not session.datasite_path.exists():
             session.datasite_path.mkdir(parents=True, exist_ok=True)
 
-        session.participants = network_participants(client.datasite_path.parent) # SyftBox/datasites
-        scrape_save_data(session.participants, client.datasite_path.parent) # SyftBox/datasites
+        session.participants = network_participants(
+            client.datasite_path.parent)  # SyftBox/datasites
+        # SyftBox/datasites
+        scrape_save_data(session.participants, client.datasite_path.parent)
 
         active_participants = make_index(
             session.participants,
@@ -77,7 +84,7 @@ def initialize_backend():
             global_context,
             pipeline=pipeline
         )
-        
+
         print(f"Active participants: {active_participants}")
         print(f"Storing indices locally..")
 
@@ -98,7 +105,7 @@ def process_message(message, history, model_choice, gemini_key=None, file=None):
             try:
                 response_obj = perform_query(
                     query=message,
-                    source=session.datasite_path, # ~/ ".federated_rag" / "data"
+                    source=session.datasite_path,  # ~/ ".federated_rag" / "data"
                     embed_model=embed_model,
                     llm=llm,
                     context=global_context
@@ -111,7 +118,7 @@ def process_message(message, history, model_choice, gemini_key=None, file=None):
             gemini_llm = GeminiLLM(api_key_path=gemini_key)
             response_obj = perform_query(
                 query=message,
-                source=session.datasite_path, # ~/ ".federated_rag" / "data"
+                source=session.datasite_path,  # ~/ ".federated_rag" / "data"
                 embed_model=embed_model,
                 llm=gemini_llm,
                 context=global_context

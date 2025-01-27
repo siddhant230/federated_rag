@@ -140,12 +140,13 @@ log_message "🎉 Ollama installation complete!"
 # install ollama models  (suggested options)
 # ollama pull qwen2:1.5b 
 # ollama pull qwen2.5:1.5b # best larger model
-ollama pull qwen2.5:0.5b  # default model
+# ollama pull qwen2.5:0.5b  # default model
 # ollama pull smollm2:135m
 # ollama pull smollm2:360m
 # ollama pull tinyllama
 # ollama pull tinydolphin
 # ollama pull granite3-moe
+ollama run deepseek-r1:1.5b #officialy best  possible model
 
 # Output Python version
 log_message "Running fed_rag with $(python3 --version) at '$(which python3)'"
