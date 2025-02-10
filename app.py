@@ -100,6 +100,7 @@ def initialize_backend():
 def process_message(message, history, model_choice, gemini_key=None, file=None):
     try:
         if model_choice == "Gemini" and not gemini_key:
+            gr.Warning("Please enter your Gemini API key")
             return "", history, session.session_name
         if model_choice == "HuggingFace":
             try:
@@ -216,9 +217,6 @@ def create_ui():
                         send = gr.Button("Send", scale=1)
 
                 with gr.Column(scale=1):
-                    gr.Markdown("### Upload PDF")
-                    file_upload = gr.File(
-                        label="Upload PDF", file_types=[".pdf"])
 
                     gr.Markdown("### Model Selection")
                     model_dropdown = gr.Dropdown(
@@ -251,14 +249,14 @@ def create_ui():
             send.click(
                 fn=process_message,
                 inputs=[msg, chatbot, model_dropdown,
-                        gemini_key_input, file_upload],
+                        gemini_key_input],
                 outputs=[msg, chatbot, session_name_display]
             )
 
             msg.submit(
                 fn=process_message,
                 inputs=[msg, chatbot, model_dropdown,
-                        gemini_key_input, file_upload],
+                        gemini_key_input],
                 outputs=[msg, chatbot, session_name_display]
             )
 
